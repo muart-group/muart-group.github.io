@@ -1,0 +1,7 @@
+{
+  "label": "Known Packet Types",
+  "link": {
+    "type": "generated-index",
+    "description": "A reference of all the packet types we know."
+  }
+}
