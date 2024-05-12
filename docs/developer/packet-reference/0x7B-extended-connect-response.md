@@ -78,10 +78,10 @@ Note that these values *may not* correspond with the actual numbers provided to 
 
 Known fan speed values (and model numbers associated with certain fan speed values) are below:
 
-| Fan Speed Value | Model Numbers | Supported Modes                                                                    |
-|-----------------|---------------|------------------------------------------------------------------------------------|
-| 3               | SVZ-KP30NA    | 0x02 (Low)<br/>0x03 (Medium)<br/>0x05 (High)                                       |
-| 5               | MSZ-GS12NA    | 0x01 (Quiet)<br/>0x02 (Low)<br/>0x03 (Medium)<br/>0x05 (High)<br/>0x06 (Very High) |
+| Fan Speed Value | Model Numbers          | Supported Modes                                                                    |
+|-----------------|------------------------|------------------------------------------------------------------------------------|
+| 3               | SVZ-KP30NA             | 0x02 (Low)<br/>0x03 (Medium)<br/>0x05 (High)                                       |
+| 5               | MSZ-GS12NA, MSZ-FS06NA | 0x01 (Quiet)<br/>0x02 (Low)<br/>0x03 (Medium)<br/>0x05 (High)<br/>0x06 (Very High) |
 
 ![image](https://github.com/Sammy1Am/mitsubishi-uart/assets/5192145/ffed7a33-2eb9-4d34-83e0-924df8ac5642)
 
@@ -91,4 +91,5 @@ Known fan speed values (and model numbers associated with certain fan speed valu
 [FC.7B.01.30.10] C9.03.00.20.00.0A.07.05.E4.25.A6.BC.94.B8.A6.B8 2D  // SVZ-KP30NA
 [FC.7B.01.30.10] C9.03.00.20.00.14.07.75.0C.05.A0.BE.94.BE.A0.BE A9  // MSZ-GL06NA
 [FC.7B.01.30.10] C9.03.00.09.04.14.07.75.00.00.00.00.00.00.00.00 DB  // MSZ-GE35VA
+[FC.7B.01.30.10] C9.03.00.20.00.14.07.75.8C.25.A0.BE.94.BE.A0.BE 09  // MSZ-FS06NA
 ```

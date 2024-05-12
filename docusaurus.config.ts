@@ -99,6 +99,10 @@ const config: Config = {
               label: 'GitHub',
               href: 'https://github.com/muart-group',
             },
+            {
+              label: 'Docusaurus Reference',
+              href: 'https://docusaurus.io/docs/category/guides'
+            }
           ],
         },
       ],
