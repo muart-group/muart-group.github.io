@@ -48,12 +48,12 @@ const config: Config = {
 
   themeConfig: {
     // Replace with your project's social card
-    image: 'img/docusaurus-social-card.jpg',
+    image: 'img/muart-social-card.jpg',
     navbar: {
       title: 'mUART',
       logo: {
         alt: 'mUART Logo',
-        src: 'img/logo.svg',
+        src: 'img/muart-logo.png',
       },
       items: [
         {
