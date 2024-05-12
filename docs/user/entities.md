@@ -1,3 +1,7 @@
+---
+sidebar-position: 30
+---
+
 # mUART Exposed Entities
 
 The following entities are exposed by the mUART Component:

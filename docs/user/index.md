@@ -1,3 +1,7 @@
+---
+sidebar-position: 1
+---
+
 # Getting Started with mUART
 
 As mUART is based on the ESPHome framework, it's rather simple to get started with your own hardware.
