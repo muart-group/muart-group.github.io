@@ -51,3 +51,9 @@ nonetheless.
   devices, so typical reverse engineering methods do not work.
 * Data can be captured over the wire using a logic analyzer capable of decoding UART signals at 2400 baud/8E1. It is 
   also possible to use the mitsubishi-uart project in passive mode to log captured packets.
+
+## Documenting Information
+
+This documentation is available [on GitHub](https://github.com/muart-group/muart-group.github.io/) and is open for pull
+requests, issues, and edits. If any useful or relevant information appears to be missing or otherwise is not as
+accessible as it should be, edits are welcome!

@@ -68,3 +68,20 @@ mitsubishi_uart:
 ```
 
 More advanced configuration options are available in the [configuration](user/configuration) pages of this document.
+
+
+## Other Projects
+
+If this project doesn't suit your needs, please consider checking out some of the other major projects also working on
+CN105 hacking:
+
+* [geoffdavis/esphome-mitsubishiheatpump](https://github.com/geoffdavis/esphome-mitsubishiheatpump)
+* [echavet/MitsubishiCN105ESPHome](https://github.com/echavet/MitsubishiCN105ESPHome)
+* [gysmo38/mitsubishi2MQTT](https://github.com/gysmo38/mitsubishi2MQTT)
+
+Alternatively you can...
+
+## Contributing
+
+mUART also has extensive [developer documentation](../developer) on the CN105 protocol, and we are always willing to 
+look at PRs or feature requests! 
