@@ -1,13 +1,16 @@
 # Packet `0x7B`: Extended Connect Response
 
-A response to an extended connect request, as sent in a (0x5B) Extended Connect Request packet. Appears to be used to 
-identify information about the unit that the thermostat is connected to.
+A response to an extended connect request, as sent in a 
+[`0x5B` - Extended Connect Request](0x5B-extended-connect-request) packet. Appears to be used to identify information 
+about the unit that the thermostat is connected to.
 
 | Byte | Purpose           | Possible Values | Supported by mUART | Notes |
 |------|-------------------|-----------------|--------------------|-------|
 | 0    | CommandType       | 0xC9            |                    |
 | 1-6  | TBD               | 0x03            |                    |
 | 7-15 | Unit Capabilities | (See below)     |                    |
+
+## Unit Capabilities
 
 | Byte | Bitmask | Purpose                                | Notes                                                      |
 |------|---------|----------------------------------------|------------------------------------------------------------|
@@ -43,14 +46,6 @@ identify information about the unit that the thermostat is connected to.
 | 15   | All     | Maximum auto temp setpoint             |                                                            |
 
 Bytes 10-15 appear to only be sent if the extended temperature range is supported by the unit.
-
-### Sample Packets
-
-```
-[FC.7B.01.30.10] C9.03.00.20.00.0A.07.05.E4.25.A6.BC.94.B8.A6.B8 2D  // SVZ-KP30NA
-[FC.7B.01.30.10] C9.03.00.20.00.14.07.75.0C.05.A0.BE.94.BE.A0.BE A9  // MSZ-GL06NA
-[FC.7B.01.30.10] C9.03.00.09.04.14.07.75.00.00.00.00.00.00.00.00 DB  // MSZ-GE35VA
-```
 
 ## Determining Fan Speeds
 
@@ -89,3 +84,11 @@ Known fan speed values (and model numbers associated with certain fan speed valu
 | 5               | MSZ-GS12NA    | 0x01 (Quiet)<br/>0x02 (Low)<br/>0x03 (Medium)<br/>0x05 (High)<br/>0x06 (Very High) |
 
 ![image](https://github.com/Sammy1Am/mitsubishi-uart/assets/5192145/ffed7a33-2eb9-4d34-83e0-924df8ac5642)
+
+## Sample Packets
+
+```
+[FC.7B.01.30.10] C9.03.00.20.00.0A.07.05.E4.25.A6.BC.94.B8.A6.B8 2D  // SVZ-KP30NA
+[FC.7B.01.30.10] C9.03.00.20.00.14.07.75.0C.05.A0.BE.94.BE.A0.BE A9  // MSZ-GL06NA
+[FC.7B.01.30.10] C9.03.00.09.04.14.07.75.00.00.00.00.00.00.00.00 DB  // MSZ-GE35VA
+```

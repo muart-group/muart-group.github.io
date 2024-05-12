@@ -2,19 +2,22 @@
 
 Sent from the MHK2 to a Kumo Cloud unit, captured via logic analyzer.
 
-| Byte | Purpose                | Possible Values                                   | Supported by mUART | Notes                               |
-|------|------------------------|---------------------------------------------------|--------------------|-------------------------------------|
-| 0    | Command Type           | 0xA8                                              | No                 |                                     |
-| 1    | Flags                  | Traditional hex flags                             |                    | Determines which fields to process  |
-| 2-5  | Thermostat Time (?)    | See [[Timestamps\|Special Data Types#Timestamps]] |                    | Flag 0x01                           |
-| 6    | ???                    | 0x00, 0x01                                        |                    | Flag 0x02                           |
-| 7    | ???                    | 0x00, 0x01, 0x02                                  |                    | Flag 0x04                           |
-| 8    | Auto Heat Setpoint (?) | Varies                                            |                    | Flag 0x08<br/>Resets if invalid (?) |
-| 9    | Auto Cool Setpoint (?) | Varies                                            |                    | Flag 0x10<br/>Resets if invalid (?) |
-| 10   | ???                    | 0x00, 0x01                                        |                    | Flag 0x20                           |
-| 11   | ???                    | 0x00, 0x01                                        |                    | Flag 0x40                           |
+| Byte | Purpose                | Possible Values             | Supported by mUART | Notes                               |
+|------|------------------------|-----------------------------|--------------------|-------------------------------------|
+| 0    | Command Type           | 0xA8                        | No                 |                                     |
+| 1    | Flags                  | Traditional hex flags       |                    | Determines which fields to process  |
+| 2-5  | Thermostat Time (?)    | See [Timestamps][timestamp] |                    | Flag 0x01                           |
+| 6    | ???                    | 0x00, 0x01                  |                    | Flag 0x02                           |
+| 7    | ???                    | 0x00, 0x01, 0x02            |                    | Flag 0x04                           |
+| 8    | Auto Heat Setpoint (?) | Varies                      |                    | Flag 0x08<br/>Resets if invalid (?) |
+| 9    | Auto Cool Setpoint (?) | Varies                      |                    | Flag 0x10<br/>Resets if invalid (?) |
+| 10   | ???                    | 0x00, 0x01                  |                    | Flag 0x20                           |
+| 11   | ???                    | 0x00, 0x01                  |                    | Flag 0x40                           |
 
-Sample Packets:
+[timestamp]: /developer/data-types/timestamps
+
+### Sample Packets
+
 ```
 [FC 41 01 30 10] A8 01 1C DD 51 E0 00 00 00 00 00 00 00 00 00 00 [AB]
 [FC 41 01 30 10] A8 01 1C DD 51 EA 00 00 00 00 00 00 00 00 00 00 [A1]

@@ -1,7 +1,8 @@
 # Command `0x05` - Get Timer Info
 
 :::note
-This packet's information was pulled from [SwiCago's HeatPump](https://github.com/SwiCago/HeatPump/) library. It has yet to be verified.
+This packet's information was pulled from [SwiCago's HeatPump](https://github.com/SwiCago/HeatPump/) library. It has yet
+to be verified.
 :::
 
 

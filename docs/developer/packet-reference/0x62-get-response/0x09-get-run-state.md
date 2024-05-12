@@ -4,12 +4,12 @@
 This command returns information about the heat pump's current run status. It is unclear if this is called as part of 
 normal operation.
 
-| Byte | Purpose          | Possible Values                                                          | Supported by mUART | Notes                                                                                     |
-|------|------------------|--------------------------------------------------------------------------|--------------------|-------------------------------------------------------------------------------------------|
-| 0    | CommandType      | 0x09                                                                     |                    |
-| 3    | Status Flags     | See Below                                                                |                    | A bitmask of flags indicating the heat pump's current status.                             |
-| 4    | Actual Fan Speed | See Below                                                                |                    | The speed the fan is currently operating at (may be different from fan setting in `0x02`) |
-| 5    | Auto Mode?       | 0x00 - N/A<br/>0x01 - Cool<br/>0x02 - Heat<br/>0x40 - ???<br/>0x41 - ??? | No                 | Per swicago lib, idle mode but has other values.                                          |
+| Byte | Purpose          | Possible Values                             | Supported by mUART | Notes                                                                                     |
+|------|------------------|---------------------------------------------|--------------------|-------------------------------------------------------------------------------------------|
+| 0    | CommandType      | 0x09                                        |                    |
+| 3    | Status Flags     | See [Status Flags](#status-flags)           |                    | A bitmask of flags indicating the heat pump's current status.                             |
+| 4    | Actual Fan Speed | See [Actual Fan Speeds](#actual-fan-speeds) |                    | The speed the fan is currently operating at (may be different from fan setting in `0x02`) |
+| 5    | Auto Mode?       | See [Auto Mode](#auto-modes)                | No                 | Per swicago lib, idle mode but has other values.                                          |
 
 ### Example Packets
 
@@ -45,3 +45,13 @@ below). Active research about these values is currently being tracked as part of
 | 4     | Powerful       | High              |
 | 5     | Super Powerful | Powerful          |
 | 6     | Super Quiet    | Quiet             |
+
+## Auto Modes
+
+| Value | Name |
+|-------|------|
+| 0x00  | N/A  |
+| 0x01  | Cool |
+| 0x02  | Heat |
+| 0x41  | ???  |
+| 0x42  | ???  |

@@ -1,25 +1,28 @@
-# Command `0x01`: Set Settings
+# Command `0x01` - Set Settings
 
-This command is used to issue a new operation state to the heat pump. It controls core behaviors like power, mode, 
+This command is used to issue a new operation state to the heat pump. It controls core behaviors like power, mode,
 target temperature, and similar.
 
-| Byte | Purpose                   | Possible Values                                                                                                                     | Supported by mUART | Notes                                                          |
-|------|---------------------------|-------------------------------------------------------------------------------------------------------------------------------------|--------------------|----------------------------------------------------------------|
-| 0    | Command Type              | 0x01                                                                                                                                | Yes                |
-| 1-2  | Update Flags              | Traditional hex flags                                                                                                               | Partially          | Indicates which parameters to update.                          |
-| 3    | Power                     | 0x00: Off<br/>0x01: On<br/>0x02: Test Mode                                                                                          | No                 | Update flag 0x0001                                             |
-| 4    | Operating Mode            | See below                                                                                                                           | No                 | Update flag 0x0002                                             |
-| 5    | Legacy Target Temperature | See [[Temperature Units\|Special Data Types#Temperature Units]]                                                                     |                    | Update flag 0x0004                                             |
-| 6    | Fan                       | See below                                                                                                                           |                    | Update flag 0x0008<br/>Not all values supported for all units. |
-| 7    | Vertical Vane             | 0x00: Auto<br/>0x01 - 0x05: Position X<br/>0x07: Swing                                                                              |                    | Update flag 0x0010<br/>Defaults to 0x5 on air handlers (?)     |
+| Byte | Purpose                   | Possible Values                                 | Supported by mUART | Notes                                                          |
+|------|---------------------------|-------------------------------------------------|--------------------|----------------------------------------------------------------|
+| 0    | Command Type              | 0x01                                            | Yes                |
+| 1-2  | Update Flags              | Traditional hex flags                           | Partially          | Indicates which parameters to update.                          |
+| 3    | Power                     | 0x00: Off<br/>0x01: On<br/>0x02: Test Mode      | No                 | Update flag 0x0001                                             |
+| 4    | Operating Mode            | See [Operating Modes](#operating-modes)         | No                 | Update flag 0x0002                                             |
+| 5    | Legacy Target Temperature | See [Legacy Setpoint Temperatures][legacy-temp] |                    | Update flag 0x0004                                             |
+| 6    | Fan                       | See [Fan Modes](#fan-modes)                     |                    | Update flag 0x0008<br/>Not all values supported for all units. |
+| 7    | Vertical Vane             | See [Vertical Vane](#vertical-vane)             |                    | Update flag 0x0010<br/>Defaults to 0x5 on air handlers (?)     |
 | 8    |
 | 9    |
 | 10   |
-| 11   | Prohibit Flags            | See below                                                                                                                           |                    | Update Flag 0x0040                                             |
+| 11   | Prohibit Flags            | See [Prohibit Flags](#prohibit-flags)           |                    | Update Flag 0x0040                                             |
 | 12   |
-| 13   | Horizontal Vane           | 0x00: Auto<br/>0x01: Full Left<br/>0x02: Left<br/>0x03: Center<br/>0x04: Right<br/>0x05: Full Right<br/>0x08: Split<br/>0x0C: Swing |                    | Update Flag 0x0100                                             |
-| 14   | Target Temperature        | Varies<br/>See [[Temperature Units\|Special Data Types#Temperature Units]]                                                          |                    | Update Flag 0x0004.<br/>Takes priority over legacy temperature |
+| 13   | Horizontal Vane           | See [Vertical Vane](#vertical-vane)             |                    | Update Flag 0x0100                                             |
+| 14   | Target Temperature        | See [Enhanced Temperatures][enhanced-temp]      |                    | Update Flag 0x0004.<br/>Takes priority over legacy temperature |
 | 15   |
+
+[legacy-temp]: /developer/data-types/temperature-units#legacy-setpoint-temperatures
+[enhanced-temp]: /developer/data-types/temperature-units#enhanced-temperatures
 
 ### Sample Packets
 
@@ -29,18 +32,18 @@ target temperature, and similar.
 
 ## Operating Modes
 
-| Value | Name       | Notes                                            |
-|-------|------------|--------------------------------------------------|
-| 1     | Heat       |                                                  |
-| 2     | Dehumidify |                                                  |
-| 3     | Cool       |                                                  |
-| 7     | Fan        |                                                  |
-| 8     | Auto       | Chooses mode based on current temp and setpoint. |
-| 9     | i-see Heat | Cannot be set                                    |
-| 10    | i-see Dry  | Cannot be set                                    |
-| 11    | i-see Cool | Cannot be set                                    |
-| 33    | Auto Heat  | Cannot be set, Kumo only?                        |
-| 35    | Auto Cool  | Cannot be set, Kumo only?                        |
+| Value | Name       | Settable | Notes                           |
+|-------|------------|----------|---------------------------------|
+| 1     | Heat       | Yes      |                                 |
+| 2     | Dehumidify | Yes      |                                 |
+| 3     | Cool       | Yes      |                                 |
+| 7     | Fan        | Yes      |                                 |
+| 8     | Auto       | Yes      |                                 |
+| 9     | i-see Heat | No       |                                 |
+| 10    | i-see Dry  | No       |                                 |
+| 11    | i-see Cool | No       |                                 |
+| 33    | Auto Heat  | No       | Only reported in Kumo Cloud API |
+| 35    | Auto Cool  | No       | Only reported in Kumo Cloud API |
 
 Operating mode 8 will use the current temperature of the room as well as the current setpoint to determine whether to
 heat or cool. Mode 8 will be returned regardless of the status of the i-see feature.
@@ -66,14 +69,44 @@ Supported fan modes can be extracted from the Extended Connect Response packet.
 | 5     | High                 |
 | 6     | Very High (Powerful) |
 
+## Vertical Vane
+
+| Value | Name             |
+|-------|------------------|
+| 0     | Auto Position    |
+| 1     | Position 1 (0°)  |
+| 2     | Position 2       |
+| 3     | Position 3 (45°) |
+| 4     | Position 4       |
+| 5     | Position 5 (90°) |
+| 7     | Swing Mode       |
+
+If set on a dual vane unit, both the left and right vanes will update in sync. There is not currently a known way to
+set each vane side independently.
+
 ## Prohibit Flags
 
 The exact intent of this byte is unknown, but it appears to prevent certain changes from being made so long as the
 prohibit flags are in place.
-
 
 | Bit  | Purpose             | Supported by mUART | Notes |
 |------|---------------------|--------------------|-------|
 | 0x01 | Lock Power          |                    |       |
 | 0x02 | Lock Operating Mode |                    |       |
 | 0x04 | Lock Temperature    |                    |       |
+
+## Horizontal Vane
+
+| Value | Name       | Symbol |
+|-------|------------|--------|
+| 0     | Auto       |        |
+| 1     | Full Left  | `<<`   |
+| 2     | Left       | `<`    |
+| 3     | Center     | `\|`   |
+| 4     | Right      | `>`    |
+| 5     | Full Right | `>>`   |
+| 8     | Split      | `<>`   |
+| 13    | Swing Mode |        |
+
+Note that auto mode may not be supported on all units, and appears to get overwritten with relative frequency (but 
+*does* appear to otherwise work).

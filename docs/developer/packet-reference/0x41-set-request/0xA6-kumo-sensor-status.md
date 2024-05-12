@@ -46,4 +46,4 @@ Unconfirmed, needs validation from people who have relevant hardware.
 |------|------------------------------------------------------------------------------------------|
 | 0x01 | [MHK2](https://mylinkdrive.com/USA/Controls/MHK2?product&categoryName=Controls)/MHK1 (?) |
 | 0x02 | Outdoor Sensor (MOS1?)                                                                   |
-| 0x04 | [Indoor Sensor](https://mylinkdrive.com/USA/Controls/PAC_USWHS003_TH_1)                  |
+| 0x04 | [Indoor Sensor](https://mylinkdrive.com/USA/Controls/PAC_USWHS003_TH_1) (?)              |

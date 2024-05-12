@@ -8,17 +8,18 @@ The below table is speculative and not confirmed.
 Implementations should not use these definitions until they've been verified more closely.
 :::
 
-| Byte | Purpose            | Possible Values                                   | Supported by mUART | Notes |
-|------|--------------------|---------------------------------------------------|--------------------|-------|
-| 0    | CommandType        | 0xA9                                              |                    |       |
-| 1-4  | Adapter Timestamp  | See [[Timestamps\|Special Data Types#Timestamps]] |                    |       |
-| 5    | ???                | 0x00                                              |                    |       |
-| 6    | ???                | 0x00, 0x01                                        |                    |       |
-| 7    | Auto Heat Setpoint | Enhanced Temperature                              | No                 |       |
-| 8    | Auto Cool Setpoint | Enhanced Temperature                              | No                 |       |
-| 10   | ???                | 0x00, 0x07                                        |                    |       |
-| 12   | ???                | 0x00                                              |                    |       |
+| Byte | Purpose            | Possible Values                 | Supported by mUART | Notes |
+|------|--------------------|---------------------------------|--------------------|-------|
+| 0    | CommandType        | 0xA9                            |                    |       |
+| 1-4  | Adapter Timestamp  | See See [Timestamps][timestamp] |                    |       |
+| 5    | ???                | 0x00                            |                    |       |
+| 6    | ???                | 0x00, 0x01                      |                    |       |
+| 7    | Auto Heat Setpoint | Enhanced Temperature            | No                 |       |
+| 8    | Auto Cool Setpoint | Enhanced Temperature            | No                 |       |
+| 10   | ???                | 0x00, 0x07                      |                    |       |
+| 12   | ???                | 0x00                            |                    |       |
 
+[timestamp]: /developer/data-types/timestamps
 
 ### Sample Packets
 

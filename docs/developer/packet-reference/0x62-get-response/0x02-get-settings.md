@@ -1,8 +1,8 @@
 # Command `0x02` - Get Current Settings
 
 This packet's structure and contained information is very similar to that of 
-[`0x41 0x01` - Set Settings](/developer/packet-reference/0x41-set-request/0x01-set-settings), and a significant amount 
-of data appears to be shared. Please consult that page for additional information about the below fields.
+[`0x41 0x01` - Set Settings][set-settings], and a significant amount of data appears to be shared. Please consult that 
+page for additional information about the below fields.
 
 | Byte | Purpose                   | Possible Values | Supported by mUART | Notes |
 |------|---------------------------|-----------------|--------------------|-------|
@@ -20,6 +20,8 @@ of data appears to be shared. Please consult that page for additional informatio
 | 13   |
 | 14   |
 | 15   |
+
+[set-settings]: /developer/packet-reference/0x41-set-request/0x01-set-settings
 
 ## Horizontal Vanes
 
