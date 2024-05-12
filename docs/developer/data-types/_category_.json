@@ -1,5 +1,5 @@
 {
-  "label": "Known Packet Types",
+  "label": "Special Data Types",
   "link": {
     "type": "generated-index",
     "description": "A reference of all the packet types we know."
