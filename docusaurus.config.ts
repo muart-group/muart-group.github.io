@@ -36,7 +36,7 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          editUrl: 'https://github.com/muart-group/muart-group.github.io/',
+          editUrl: 'https://github.com/muart-group/muart-group.github.io/tree/main/',
           routeBasePath: '/'
         },
         theme: {
@@ -50,7 +50,7 @@ const config: Config = {
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
     navbar: {
-      title: 'Mitsubishi-UART Project',
+      title: 'mUART',
       logo: {
         alt: 'mUART Logo',
         src: 'img/logo.svg',
@@ -67,6 +67,11 @@ const config: Config = {
           sidebarId: 'devSidebar',
           position: 'left',
           label: 'For Developers',
+        },
+        {
+          href: 'https://esphome.io/index.html',
+          label: 'ESPHome Documentation',
+          position: 'left',
         },
         {
           href: 'https://github.com/muart-group',
