@@ -14,7 +14,7 @@ Sent from the MHK2 to a Kumo Cloud unit, captured via logic analyzer.
 | 10   | ???                    | 0x00, 0x01                  |                    | Flag 0x20                           |
 | 11   | ???                    | 0x00, 0x01                  |                    | Flag 0x40                           |
 
-[timestamp]: /developer/data-types/timestamps
+[timestamp]: ../../data-types/timestamps.md
 
 ### Sample Packets
 

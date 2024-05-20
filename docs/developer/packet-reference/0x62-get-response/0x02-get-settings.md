@@ -21,7 +21,7 @@ page for additional information about the below fields.
 | 14   |
 | 15   |
 
-[set-settings]: /developer/packet-reference/0x41-set-request/0x01-set-settings
+[set-settings]: ../0x41-set-request/0x01-set-settings.md
 
 ## Horizontal Vanes
 

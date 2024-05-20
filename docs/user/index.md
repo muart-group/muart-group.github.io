@@ -67,7 +67,7 @@ mitsubishi_uart:
   heatpump_uart: hp_uart
 ```
 
-More advanced configuration options are available in the [configuration](user/configuration) pages of this document.
+More advanced configuration options are available in the [configuration](configuration/index.md) pages of this document.
 
 
 ## Other Projects

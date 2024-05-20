@@ -21,8 +21,8 @@ target temperature, and similar.
 | 14   | Target Temperature        | See [Enhanced Temperatures][enhanced-temp]      |                    | Update Flag 0x0004.<br/>Takes priority over legacy temperature |
 | 15   |
 
-[legacy-temp]: /developer/data-types/temperature-units#legacy-setpoint-temperatures
-[enhanced-temp]: /developer/data-types/temperature-units#enhanced-temperatures
+[legacy-temp]: ../../data-types/temperature-units.md#legacy-setpoint-temperatures
+[enhanced-temp]: ../../data-types/temperature-units.md#enhanced-temperatures
 
 ### Sample Packets
 

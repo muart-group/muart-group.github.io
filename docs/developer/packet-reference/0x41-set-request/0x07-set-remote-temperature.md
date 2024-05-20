@@ -12,5 +12,5 @@ This command is normally issued by a MHK thermostat and sent to the heat pump to
 When decoding this value, byte 3 takes precedence over byte 2. When sending this packet, it appears to be safe to just
 send byte 3 though be aware that this may cause an issue with older units.
 
-[legacy-temp]: /developer/data-types/temperature-units#legacy-current-temperatures
-[enhanced-temp]: /developer/data-types/temperature-units#enhanced-temperatures
+[legacy-temp]: ../../data-types/temperature-units.md#legacy-current-temperatures
+[enhanced-temp]: ../../data-types/temperature-units.md#enhanced-temperatures

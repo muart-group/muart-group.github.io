@@ -19,7 +19,7 @@ Implementations should not use these definitions until they've been verified mor
 | 10   | ???                | 0x00, 0x07                      |                    |       |
 | 12   | ???                | 0x00                            |                    |       |
 
-[timestamp]: /developer/data-types/timestamps
+[timestamp]: ../../data-types/timestamps.md
 
 ### Sample Packets
 

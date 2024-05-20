@@ -5,7 +5,7 @@ defined in the ESPHome configuration. Note that all sensors must return values i
 be necessary for some sensors.
 
 :::tip
-If an MHK2 is connected [and configured](thermostat), it will automatically add itself as a valid temperature source.
+If an MHK2 is connected [and configured](thermostat.md), it will automatically add itself as a valid temperature source.
 :::
 
 :::note
@@ -27,7 +27,7 @@ sensor:
 
 mitsubishi_uart:
   heatpump_uart: hp_uart
-  ...
+  # ...
   temperature_sources:
     - office_temperature
 ```

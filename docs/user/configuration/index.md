@@ -14,19 +14,19 @@ ESPHome or Home Assistant from displaying updates performed via remote or thermo
 ```yaml
 mitsubishi_uart:
   heatpump_uart: hp_uart
-  ...
+  # ...
   update_interval: 10s
 ```
 
 ### `temperature_sources`
 
 This key takes an array of ESPHome sensor IDs to use as extra temperature sources. See the documentation page on
-[adding extra temperature sources](configuration/temp-sources) for additional information.
+[adding extra temperature sources](temp-sources.md) for additional information.
 
 ### `thermostat_uart`
 
 This key takes an ID of a UART component hosting a MHK2 thermoststat. See the documentation page on 
-[adding a Mitsubishi thermostat](configuration/thermostat) for extra information.
+[adding a Mitsubishi thermostat](thermostat.md) for extra information.
 
 ### `supported_modes`
 
@@ -36,7 +36,7 @@ code is not aware of them.
 
 ```yml
 mitsubishi_uart:
-  ...
+  # ...
   supported_modes:
     - 'OFF'
     - HEAT
@@ -53,7 +53,7 @@ new modes will not have any effect, as the code is not aware of them.
 
 ```yml
 mitsubishi_uart:
-  ...
+  # ...
   supported_fan_modes:
     - AUTO
     - QUIET
@@ -74,16 +74,16 @@ normally do not need to be changed, but exist for cases where overrides are nece
 
 ```yml
 mitsubishi_uart:
-  ...
+  # ...
   sensors:
     current_temperature:
-      ...
+      # ...
   selects:
     temperature_source_select:
-      ...
+      # ...
 ```
 
-A list of entity IDs is available [on the Entities documentation page](entities).
+A list of entity IDs is available [on the Entities documentation page](../entities.md).
 
 ## Showing Hidden Entities
 

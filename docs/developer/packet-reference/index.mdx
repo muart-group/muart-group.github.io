@@ -29,8 +29,8 @@ accept packets of any length (though caution is advised).
 ## Known Command IDs
 
 The below table is a quick reference of all known command IDs (otherwise known as *attribution groups* in Kumo's code) 
-that are currently known. These only apply to packets [`0x41` - Set Request](0x41-set-request) and 
-[`0x62` - Get Response](0x62-get-response) (and their companions `0x42` and `0x61`, respectively). 
+that are currently known. These only apply to packets [`0x41` - Set Request][set-request] and 
+[`0x62` - Get Response][get-response] (and their companions `0x42` and `0x61`, respectively). 
 
 | Command ID       | Name                     | Communication Flow |
 |------------------|--------------------------|--------------------|
@@ -55,21 +55,23 @@ that are currently known. These only apply to packets [`0x41` - Set Request](0x4
 | [0xAB][ag-AB]    | Kumo Adapter State       | Kumo -> MHK        |
 | [0xC9][ag-C9]    | Extended Heat Pump Hello | HP -> Kumo/MHK     |
 
-[ag-01]: 0x41-set-request/0x01-set-settings
-[ag-02]: 0x62-get-response/0x02-get-settings
-[ag-03]: 0x62-get-response/0x03-get-temperatures
-[ag-04]: 0x62-get-response/0x04-get-error-state
-[ag-05]: 0x62-get-response/0x05-get-timer-info
-[ag-06]: 0x62-get-response/0x06-get-operation-state
-[ag-07]: 0x41-set-request/0x07-set-remote-temperature
-[ag-08]: 0x41-set-request/0x08-set-run-state
-[ag-09]: 0x62-get-response/0x09-get-run-state
-[ag-1F-21]: 0x41-set-request/0x1F-0x21-set-functions
-[ag-20-22]: 0x62-get-response/0x20-0x22-get-functions
-[ag-A6]: 0x41-set-request/0xA6-kumo-sensor-status
-[ag-A7]: 0x41-set-request/0xA7-thermostat-hello
-[ag-A8]: 0x41-set-request/0xA8-unknown-kumo-packet
-[ag-A9]: 0x62-get-response/0xA9-kumo-adapter-state
-[ag-AA]: 0x41-set-request/0xAA-unknown-kumo-packet
-[ag-AB]: 0x62-get-response/0xAB-unknown-kumo-packet
-[ag-C9]: 0x7B-extended-connect-response
+[set-request]: 0x41-set-request/index.mdx
+[get-response]: 0x62-get-response/index.mdx
+[ag-01]: 0x41-set-request/0x01-set-settings.md
+[ag-02]: 0x62-get-response/0x02-get-settings.md
+[ag-03]: 0x62-get-response/0x03-get-temperatures.md
+[ag-04]: 0x62-get-response/0x04-get-error-state.md
+[ag-05]: 0x62-get-response/0x05-get-timer-info.md
+[ag-06]: 0x62-get-response/0x06-get-operation-state.md
+[ag-07]: 0x41-set-request/0x07-set-remote-temperature.md
+[ag-08]: 0x41-set-request/0x08-set-run-state.md
+[ag-09]: 0x62-get-response/0x09-get-run-state.md
+[ag-1F-21]: 0x41-set-request/0x1F-0x21-set-functions.md
+[ag-20-22]: 0x62-get-response/0x20-0x22-get-functions.md
+[ag-A6]: 0x41-set-request/0xA6-kumo-sensor-status.md
+[ag-A7]: 0x41-set-request/0xA7-thermostat-hello.md
+[ag-A8]: 0x41-set-request/0xA8-unknown-kumo-packet.md
+[ag-A9]: 0x62-get-response/0xA9-kumo-adapter-state.md
+[ag-AA]: 0x41-set-request/0xAA-unknown-kumo-packet.md
+[ag-AB]: 0x62-get-response/0xAB-unknown-kumo-packet.md
+[ag-C9]: 0x7B-extended-connect-response.md

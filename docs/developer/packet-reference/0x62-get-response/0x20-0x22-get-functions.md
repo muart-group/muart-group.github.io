@@ -12,4 +12,4 @@ must be taken when using this function.
 | 1-14 | Function Settings | See [[Function Settings\|Special-Data-Types#function-settings]] |                    |                                          |
 | 15   | End Byte          | 0x00                                                            |                    | Unsure if 0x00 has a specific value here |
 
-[set-functions]: /developer/packet-reference/0x41-set-request/0x1F-0x21-set-functions
+[set-functions]: ../0x41-set-request/0x1F-0x21-set-functions.md

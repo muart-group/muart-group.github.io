@@ -18,8 +18,8 @@ Byte 7 to be the "most recent" reading, while Byte 6 is the last reading. While 
 sensors, it does not work for the internal sensor - see below sample packet where it goes from 0xA9 to 0xAC and 
 completely ignores the 0xB0. Kumo's code claims that byte 6 is `room_temp_a`, and does not use byte 7 at all.
 
-[legacy-temp]: /developer/data-types/temperature-units#legacy-current-temperatures
-[enhanced-temp]: /developer/data-types/temperature-units#enhanced-temperatures
+[legacy-temp]: ../../data-types/temperature-units.md#legacy-current-temperatures
+[enhanced-temp]: ../../data-types/temperature-units.md#enhanced-temperatures
 
 ### Sample Packets
 
