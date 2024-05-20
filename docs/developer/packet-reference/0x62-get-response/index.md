@@ -1,3 +1,5 @@
+import DocCardList from '@theme/DocCardList';
+
 # Packet `0x62`: Get Response
 
 This packet is issued by the heat pump in response to a [`0x42` - Get Request](0x42-get-request) packet. Unlike the 
@@ -13,3 +15,7 @@ The first byte of this packet represents the command type that is being responde
 
 Firmware dumps have revealed the existence of packets `0x50`, `0x51`, and `0xA0`, but no information about these command
 types exist yet.
+
+## Supported Command IDs
+
+<DocCardList />

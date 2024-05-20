@@ -1,11 +1,8 @@
 # Connecting a Mitsubishi Thermostat
 
 It's possible to connect a thermostat like an MHK2 (as well as possibly some others!) to the microcontroller to allow
-a second point of control (or just to use as a temperature sensor). Using the same CN105 connection and wiring, the
-thermostat should be connected to a second pair of UART pins.
-
-If doing this, the +12V, GND, and +5V connections must pass through to the second CN105 connector. Ensure that the
-TX/RX pairs do *not* directly cross over.
+a second point of control (or just to use as a temperature sensor). Note that the thermostat's TX/RX connectors are
+inverted - CN105 pin 4 should connect to the defined TX pin, and pin 5 to the defined RX pin.
 
 Once the hardware is ready, a second UART must be defined:
 

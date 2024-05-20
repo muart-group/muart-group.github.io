@@ -1,5 +1,5 @@
 ---
-sidebar-position: 1
+sidebar_position: 0
 ---
 
 # Getting Started with mUART
@@ -23,13 +23,13 @@ using [a Wemos D1 Mini](https://github.com/SwiCago/HeatPump/issues/13#issuecomme
 The Mitsubishi CN105 port is fortunately [rather well documented](https://nicegear.nz/blog/hacking-a-mitsubishi-heat-pump-air-conditioner/)
 at this point. It exposes five pins:
 
-| Pin | Purpose      | Connects To                              |
-|-----|--------------|------------------------------------------|
-| 1   | +12V DC      | N/C or Voltage Regulator                 |
-| 2   | Ground       | Ground                                   |
-| 3   | +5V DC       | Microcontroller +5V or Voltage Regulator |
-| 4   | Heat Pump TX | Microcontroller RX                       |
-| 5   | Heat Pump RX | Microcontroller TX                       |
+| Pin | Purpose                          | Connects To                              |
+|-----|----------------------------------|------------------------------------------|
+| 1   | +12V DC                          | N/C or Voltage Regulator                 |
+| 2   | Ground                           | Ground                                   |
+| 3   | +5V DC                           | Microcontroller +5V or Voltage Regulator |
+| 4   | Heat Pump TX <br/> Thermostat RX | Microcontroller RX                       |
+| 5   | Heat Pump RX <br/> Thermostat TX | Microcontroller TX                       |
 
 Note that the TX/RX pins both provide and expect 5 volts. While most ESP chips are okay with this and heat pumps seem to 
 not care about only getting 3.3 volts back, the baud rate of the serial connection means that a 
@@ -79,7 +79,7 @@ CN105 hacking:
 * [echavet/MitsubishiCN105ESPHome](https://github.com/echavet/MitsubishiCN105ESPHome)
 * [gysmo38/mitsubishi2MQTT](https://github.com/gysmo38/mitsubishi2MQTT)
 
-Alternatively you can...
+Alternatively you can consider...
 
 ## Contributing
 
