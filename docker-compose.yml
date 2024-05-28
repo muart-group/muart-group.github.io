@@ -1,0 +1,11 @@
+services:
+  muart-docs:
+    build:
+      context: .
+    volumes:
+      - .:/app:cached
+      - /app/node_modules
+    ports:
+      - 3000:3000
+    expose:
+      - 3000

@@ -8,3 +8,20 @@ This documentation site is built using [Docusaurus](https://docusaurus.io/), and
 end users as well as project contributors.
 
 The documentation page is available at https://muart-group.github.io/
+
+## Running Locally
+
+For convenience, a `Dockerfile` and `docker-compose.yml` file have been provided to run the docs site locally. It
+may be started with the following command:
+
+```sh
+docker compose up -d
+```
+
+To stop, use:
+
+```sh
+docker compose down
+```
+
+Note that any changes to Node dependencies will require a container rebuild (`docker compose build`).
