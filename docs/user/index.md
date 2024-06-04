@@ -64,7 +64,7 @@ uart:
       number: GPIO1
 
 mitsubishi_uart:
-  heatpump_uart: hp_uart
+  uart_heatpump: hp_uart
 ```
 
 More advanced configuration options are available in the [configuration](configuration/index.md) pages of this document.

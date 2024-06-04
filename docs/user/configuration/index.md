@@ -13,7 +13,7 @@ ESPHome or Home Assistant from displaying updates performed via remote or thermo
 
 ```yaml
 mitsubishi_uart:
-  heatpump_uart: hp_uart
+  uart_heatpump: hp_uart
   # ...
   update_interval: 10s
 ```
@@ -23,7 +23,7 @@ mitsubishi_uart:
 This key takes an array of ESPHome sensor IDs to use as extra temperature sources. See the documentation page on
 [adding extra temperature sources](temp-sources.md) for additional information.
 
-### `thermostat_uart`
+### `uart_thermostat`
 
 This key takes an ID of a UART component hosting a MHK2 thermoststat. See the documentation page on 
 [adding a Mitsubishi thermostat](thermostat.md) for extra information.

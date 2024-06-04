@@ -26,7 +26,7 @@ sensor:
       - lambda: return ((x - 32.0) * (5.0 / 9.0));  # Remember to convert F to C!
 
 mitsubishi_uart:
-  heatpump_uart: hp_uart
+  uart_heatpump: hp_uart
   # ...
   temperature_sources:
     - office_temperature

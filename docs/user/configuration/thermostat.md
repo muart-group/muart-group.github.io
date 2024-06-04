@@ -18,11 +18,11 @@ uart:
       number: GPIO14
 ```
 
-Then, the thermostat must be registered with the component using the special `thermostat_uart` key:
+Then, the thermostat must be registered with the component using the special `uart_thermostat` key:
 
 ```yaml
 mitsubishi_uart:
-  heatpump_uart: hp_uart
+  uart_heatpump: hp_uart
   thermostat_uart: ts_uart
   ...
 ```
