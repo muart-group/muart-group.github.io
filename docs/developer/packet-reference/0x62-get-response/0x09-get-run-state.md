@@ -4,6 +4,11 @@
 This command returns information about the heat pump's current run status. It is unclear if this is called as part of 
 normal operation.
 
+:::info
+Certain older heat pump units do not return Run Status as part of their operation. So far, this has been reported on
+the MSZ-GE##VA and MSZ-FD##VA units, but otherse may be affected.
+:::
+
 | Byte | Purpose          | Possible Values                             | Supported by mUART | Notes                                                                                     |
 |------|------------------|---------------------------------------------|--------------------|-------------------------------------------------------------------------------------------|
 | 0    | CommandType      | 0x09                                        |                    |
