@@ -24,7 +24,18 @@ accept packets of any length (though caution is advised).
 
 ## Known Packet Types
 
-<DocCardList />
+The following table represents all known packet types, our names for them, and (known) METUS/IT Protocol information for them.
+
+| Packet Type | Name                      | METUS Name                             |
+|-------------|---------------------------|----------------------------------------|
+| 0x41        | Set Request               | Operation setting                      |
+| 0x61        | Set Response              | Response of operation                  |
+| 0x42        | Get Request               | Demand of condition information        |
+| 0x62        | Get Response              | Response of condition information      |
+| 0x5A        | Connect Request           | Communication setting                  |
+| 0x7A        | Connect Response          | Response of communication setting      |
+| 0x5B        | Extended Connect Request  | Demand of communication setting data   |
+| 0x7B        | Extended Connect Response | Response of communication setting data |
 
 ## Known Command IDs
 
@@ -54,6 +65,7 @@ that are currently known. These only apply to packets [`0x41` - Set Request][set
 | [0xAA][ag-AA]    | Unknown Kumo Packet      | MHK -> Kumo        |
 | [0xAB][ag-AB]    | Kumo Adapter State       | Kumo -> MHK        |
 | [0xC9][ag-C9]    | Extended Heat Pump Hello | HP -> Kumo/MHK     |
+| 0xCA             | Unknown                  | Unknown            |
 
 [set-request]: 0x41-set-request/index.mdx
 [get-response]: 0x62-get-response/index.mdx
