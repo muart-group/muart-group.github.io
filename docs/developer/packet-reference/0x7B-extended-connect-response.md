@@ -92,4 +92,5 @@ Known fan speed values (and model numbers associated with certain fan speed valu
 [FC.7B.01.30.10] C9.03.00.20.00.14.07.75.0C.05.A0.BE.94.BE.A0.BE A9  // MSZ-GL06NA
 [FC.7B.01.30.10] C9.03.00.09.04.14.07.75.00.00.00.00.00.00.00.00 DB  // MSZ-GE35VA
 [FC.7B.01.30.10] C9.03.00.20.00.14.07.75.8C.25.A0.BE.94.BE.A0.BE 09  // MSZ-FS06NA
+[FC.7B.01.30.10] C9.03.00.08.04.14.07.75.00.00.00.00.00.00.00.00 DC  // MSZ-FD25VA
 ```
