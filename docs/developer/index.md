@@ -35,6 +35,9 @@ implementations, sample code, feature sets, or known capabilities.
   some extra findings.
 * **[vilppuvuorinen/pymelcloud](https://github.com/vilppuvuorinen/pymelcloud)** - A library for interfacing via 
   MELCloud. May contain extra findings or data associations.
+* **[ncaunt/meldec](https://github.com/ncaunt/meldec)** - Another MELCloud/Ecodan-focused library, including some rather
+  useful reverse engineering notes for the IT protocol. Useful as as systems reference, and contains a couple firmware
+  dumps.
 
 ## More Esoteric Information
 
