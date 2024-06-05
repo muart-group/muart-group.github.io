@@ -79,6 +79,17 @@ CN105 hacking:
 * [echavet/MitsubishiCN105ESPHome](https://github.com/echavet/MitsubishiCN105ESPHome)
 * [gysmo38/mitsubishi2MQTT](https://github.com/gysmo38/mitsubishi2MQTT)
 
+A number of commercial products also exist for controlling Mitubishi Electric heat pumps via CN105:
+
+* [Airzone Aidoo WiFi](https://www.airzonecontrol.com/na/en/control-solutions/aidoo/wi-fi/)
+  * Two separate part numbers: AZAI6WSCMEL (bridge), AZX6ACCSPLMEL (CN105 splitter)
+* [Intesis Home Automation Interface](https://www.hms-networks.com/p/inwmpmit001i000-mitsubishi-electric-domestic-mr-slim-and-city-multi-to-home-automation-interface?tab=tab-specification)
+  * Part Number INWMPMIT001I000
+* [CoolMaster CoolPlug](https://coolautomation.com/products/coolplug-coolinkhub/)
+  * Part Number CO-CP-WRLS-ME
+ 
+If you have one of these units already, please get in touch with us! We'd love to learn more about how they work.
+
 Alternatively you can consider...
 
 ## Contributing
