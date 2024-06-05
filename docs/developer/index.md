@@ -34,7 +34,7 @@ implementations, sample code, feature sets, or known capabilities.
 * **[echavet/MitsubishiCN105ESPHome](https://github.com/echavet/MitsubishiCN105ESPHome)** - Another ESPHome library with 
   some extra findings.
 * **[vilppuvuorinen/pymelcloud](https://github.com/vilppuvuorinen/pymelcloud)** - A library for interfacing via 
-  MELCloud, which is now defunct (?). May contain extra findings or data associations.
+  MELCloud. May contain extra findings or data associations.
 
 ## More Esoteric Information
 
