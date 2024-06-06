@@ -39,7 +39,7 @@ about the unit that the thermostat is connected to.
 | 9    | 0x04    | ???                                    | Observed true and false                                    |
 | 9    | 0x08    | ???                                    |                                                            |
 | 9    | 0x10    | ???                                    | Observed true and false                                    |
-| 9    | 0x20    | ???                                    | Observed true and false                                    |
+| 9    | 0x20    | Supports Outside Temp Reporting        | Unconfirmed!                                               |
 | 9    | 0x40    | ???                                    |                                                            |
 | 9    | 0x80    | ???                                    | Observed true and false                                    |
 | 10   | All     | Minimum cool/dry temp setpoint         |                                                            |
