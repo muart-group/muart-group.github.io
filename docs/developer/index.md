@@ -53,8 +53,7 @@ nonetheless.
   * Kumo Cloud (US): `com.mehvac.kumocloud`
   * MELCloud (EU): `mitsubishi.wifi.android.mitsubishiwifiapp`
   * MELView (AUS/NZ): `net.melview.app` 
-  * MELRemo (JP): `jp.co.melco.gemini.mobile.gui`, `jp.co.melco.gemini.mobile.gui.Admin`,
-    `jp.co.MitsubishiElectric.MELRemoplus`
+  * KirigamineRemote (JP): `air.jp.co.MitsubishiElectric.KirigamineRemote`
 * Firmware for certain Mitsubishi control units has been extracted or otherwise found, which can be analyzed using
   the usual static analysis tools. As Mitsubishi seems to properly secure these devices, these firmware images are
   rather difficult to get a hold of and cannot be debugged in situ. Currently, the following firmware has been found:
