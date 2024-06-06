@@ -6,12 +6,9 @@ ENV NPM_CONFIG_COLOR=false
 EXPOSE 3000
 
 WORKDIR /app
-RUN chown -R node:node /app
-USER node
-
-COPY --chown=node:node package.json yarn.lock /app
+COPY package.json yarn.lock /app/
 RUN yarn install
 
-COPY --chown=node:node . /app
+COPY . /app
 
-CMD ["yarn", "start", "--host", "0.0.0.0"]
+CMD ["yarn", "start", "--host", "0.0.0.0", "--poll", "6001"]

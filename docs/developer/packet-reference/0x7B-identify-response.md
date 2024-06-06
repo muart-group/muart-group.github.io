@@ -1,7 +1,11 @@
-# Packet `0x7B`: Extended Connect Response
+---
+sidebar_position: 41
+---
 
-A response to an extended connect request, as sent in a 
-[`0x5B` - Extended Connect Request](0x5B-extended-connect-request) packet. Appears to be used to identify information 
+# Packet `0x7B`: Identify Response
+
+A response to an identify request, as sent in a 
+[`0x5B` - Identify Request](0x5B-identify-request) packet. Appears to be used to identify information 
 about the unit that the thermostat is connected to.
 
 | Byte | Purpose           | Possible Values | Supported by mUART | Notes |

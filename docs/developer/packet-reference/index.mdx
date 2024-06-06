@@ -1,9 +1,7 @@
-import DocCardList from '@theme/DocCardList';
-
 # IT Protocol Packet Reference
 
-Packets sent on Mitsubishi's CN105 port seem to follow a general structure, but the specific content is still not 
-entirely well mapped out.  Eventually I'm hoping to have this wiki compile all the known information, but quite a bit 
+Packets sent on Mitsubishi's CN105 port seem to follow a general structure, but the specific content is still not
+entirely well mapped out.  Eventually I'm hoping to have this wiki compile all the known information, but quite a bit
 of data is available nonetheless.
 
 For reference purposes, Mitsubishi-internal names are included in this documentation. However, community-defined names
@@ -22,30 +20,39 @@ request/response structure.
 | 4    | Payload Size        | Data Length  | 0x00-0x10         | Yes                       |
 
 The protocol specification appears to require packet lengths of `0x01`, `0x02`, or `0x10`, depending on the packet type.
-Most packets will use a length of `0x10` even when the extra bytes are not relevant. Similarly, most units seem to 
+Most packets will use a length of `0x10` even when the extra bytes are not relevant. Similarly, most units seem to
 accept packets of any length (though caution is advised).
 
 ## Known Packet Types
 
-The following table represents all known packet types, our names for them, and (known) METUS/IT Protocol information for 
+The following table represents all known packet types, our names for them, and (known) METUS/IT Protocol information for
 them.
 
-| Packet Type | Name                      | METUS Name                             |
-|-------------|---------------------------|----------------------------------------|
-| 0x41        | Set Request               | Operation setting                      |
-| 0x61        | Set Response              | Response of operation                  |
-| 0x42        | Get Request               | Demand of condition information        |
-| 0x62        | Get Response              | Response of condition information      |
-| 0x5A        | Connect Request           | Communication setting                  |
-| 0x7A        | Connect Response          | Response of communication setting      |
-| 0x5B        | Extended Connect Request  | Demand of communication setting data   |
-| 0x7B        | Extended Connect Response | Response of communication setting data |
+| Packet Type   | Name              | METUS Name                             |
+|---------------|-------------------|----------------------------------------|
+| [0x41][sc-41] | Set Request       | Operation setting                      |
+| [0x61][sc-61] | Set Response      | Response of operation                  |
+| [0x42][sc-42] | Get Request       | Demand of condition information        |
+| [0x62][sc-62] | Get Response      | Response of condition information      |
+| [0x5A][sc-5A] | Connect Request   | Communication setting                  |
+| [0x7A][sc-7A] | Connect Response  | Response of communication setting      |
+| [0x5B][sc-5B] | Identify Request  | Demand of communication setting data   |
+| [0x7B][sc-7B] | Identify Response | Response of communication setting data |
+
+[sc-41]: 0x41-set-request/index.mdx
+[sc-61]: 0x61-set-response.md
+[sc-42]: 0x42-get-request.md
+[sc-62]: 0x62-get-response/index.mdx
+[sc-5A]: 0x5A-connect-request.md
+[sc-7A]: 0x7A-connect-response.md
+[sc-5B]: 0x5B-identify-request.md
+[sc-7B]: 0x7B-identify-response.md
 
 ## Known Command IDs
 
-The below table is a quick reference of all known command IDs (otherwise known as *attribution groups* in Kumo's code) 
-that are currently known. These only apply to packets [`0x41` - Set Request][set-request] and 
-[`0x62` - Get Response][get-response] (and their companions `0x42` and `0x61`, respectively). 
+The below table is a quick reference of all known command IDs (otherwise known as *attribution groups* in Kumo's code)
+that are currently known. These only apply to packets [`0x41` - Set Request][set-request] and
+[`0x62` - Get Response][get-response] (and their companions `0x42` and `0x61`, respectively).
 
 | Command ID       | Name                     | Communication Flow |
 |------------------|--------------------------|--------------------|
@@ -90,4 +97,4 @@ that are currently known. These only apply to packets [`0x41` - Set Request][set
 [ag-A9]: 0x62-get-response/0xA9-kumo-adapter-state.md
 [ag-AA]: 0x41-set-request/0xAA-unknown-kumo-packet.md
 [ag-AB]: 0x62-get-response/0xAB-unknown-kumo-packet.md
-[ag-C9]: 0x7B-extended-connect-response.md
+[ag-C9]: 0x7B-identify-response.md

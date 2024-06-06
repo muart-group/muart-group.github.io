@@ -1,3 +1,7 @@
+---
+sidebar_position: 30
+---
+
 # Packet `0x5A`: Connect Request
 
 This packet appears to be sent by the thermostat as part of establishing communication to a heat pump or Kumo Cloud 

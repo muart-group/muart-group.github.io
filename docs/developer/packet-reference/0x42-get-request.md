@@ -1,3 +1,7 @@
+---
+sidebar_position: 20
+---
+
 # Packet `0x42`: Get Request
 
 This packet appears to be a generic "get" command to the HVAC unit, and is used to query information about the heat 

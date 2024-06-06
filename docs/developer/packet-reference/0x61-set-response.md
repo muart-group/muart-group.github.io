@@ -1,3 +1,7 @@
+---
+sidebar_position: 11
+---
+
 # Packet `0x61`: Set Response
 
 This packet appears to serve as an acknowledgement to a [`0x41` - Set Request](0x41-set-request) packet. It does not 
