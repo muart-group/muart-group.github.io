@@ -48,13 +48,6 @@ nonetheless.
 * The web versions of [Kumo Cloud (US)](https://app.kumocloud.com/), [MELCloud (EU)](https://app.melcloud.com/), and
   [MELView (AUS/NZ)](https://app.melview.net) offer interesting tidbits in uglified JavaScript code, including official
   names of certain IT protocol aspects.
-* Firmware versions 02.01.04 and 02.16.12 for the `PAC-USWHS002-WF-2` unit have been extracted from the device flash and 
-  are available for analysis. "Fake flash" dumps and firmware information are available in Swicago's Gitter room. Note 
-  that only static analysis may be performed on these devices - MEHVAC has appeared to (mostly) properly secure their 
-  devices, so typical reverse engineering methods do not work.
-* 
-* Data can be captured over the wire using a logic analyzer capable of decoding UART signals at 2400 baud/8E1. It is 
-  also possible to use the mitsubishi-uart project in passive mode to log captured packets.
 * The various Mitsubishi Electric mobile apps contain some hints and possible protocol information. The APKs tend to
   be significantly more accessible than their iOS variants.
   * Kumo Cloud (US): `com.mehvac.kumocloud`
@@ -68,6 +61,8 @@ nonetheless.
   * `PAC-USWHS002-WF-2`: Versions 02.01.14 and 02.16.12 are available in SwiCago's Gitter. Most current analysis for
     this project is based around version 02.01.14.
   * `MAC-577IF2-E`: A currently-undetermined firmware version was posted to the MELDec repostiory.
+* Data can be captured over the wire using a logic analyzer capable of decoding UART signals at 2400 baud/8E1. It is 
+  also possible to use the mitsubishi-uart project in passive mode to log captured packets.
 
 ## Documenting Information
 
