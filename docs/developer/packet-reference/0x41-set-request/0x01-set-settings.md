@@ -17,7 +17,7 @@ target temperature, and similar.
 | 10   |
 | 11   | Prohibit Flags            | See [Prohibit Flags](#prohibit-flags)           |                    | Update Flag 0x0040                                             |
 | 12   |
-| 13   | Horizontal Vane           | See [Vertical Vane](#vertical-vane)             |                    | Update Flag 0x0100                                             |
+| 13   | Horizontal Vane           | See [Horizontal Vane](#horizontal-vane)         |                    | Update Flag 0x0100                                             |
 | 14   | Target Temperature        | See [Enhanced Temperatures][enhanced-temp]      |                    | Update Flag 0x0004.<br/>Takes priority over legacy temperature |
 | 15   |
 
@@ -97,16 +97,19 @@ prohibit flags are in place.
 
 ## Horizontal Vane
 
-| Value | Name       | Symbol |
-|-------|------------|--------|
-| 0     | Auto       |        |
-| 1     | Full Left  | `<<`   |
-| 2     | Left       | `<`    |
-| 3     | Center     | `\|`   |
-| 4     | Right      | `>`    |
-| 5     | Full Right | `>>`   |
-| 8     | Split      | `<>`   |
-| 13    | Swing Mode |        |
+| Value | Name                                    | Symbol |
+|-------|-----------------------------------------|--------|
+| 0     | Auto                                    |        |
+| 1     | Full Left                               | `<<`   |
+| 2     | Left                                    | `<`    |
+| 3     | Center                                  | `\|`   |
+| 4     | Right                                   | `>`    |
+| 5     | Full Right                              | `>>`   |
+| 6     | (UNCONFIRMED) Split (Left/Center)       |        |
+| 7     | (UNCONFIRMED) Split (Center/Right)      |        |
+| 8     | Split (Left/Right)                      | `<>`   |
+| 9     | (UNCONFIRMED) Split (Left/Center/Right) |        |
+| 12    | Swing Mode                              |        |
 
 Note that auto mode may not be supported on all units, and appears to get overwritten with relative frequency (but 
 *does* appear to otherwise work).
