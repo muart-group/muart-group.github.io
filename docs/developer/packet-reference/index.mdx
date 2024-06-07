@@ -75,9 +75,7 @@ that are currently known. These only apply to packets [`0x41` - Set Request][set
 | [0xA9][ag-A9]    | Thermostat State Download  | Kumo -> MHK        |
 | [0xAA][ag-AA]    | Unknown Kumo Packet        | MHK -> Kumo        |
 | [0xAB][ag-AB]    | Unknown Kumo Packet        | Kumo -> MHK        |
-| [0xC9][ag-C9]    | Identify Base Capabilities | HP -> Kumo/MHK     |
 | 0xCA             | Unknown                    | Unknown            |
-| [0xCD][ag-CD]    | Unknown Identify Packet    | Unknown            |
 
 [set-request]: 0x41-set-request/index.mdx
 [get-response]: 0x62-get-response/index.mdx
@@ -98,5 +96,16 @@ that are currently known. These only apply to packets [`0x41` - Set Request][set
 [ag-A9]: 0x62-get-response/0xA9-thermostat-state-download.md
 [ag-AA]: 0x41-set-request/0xAA-unknown-kumo-packet.md
 [ag-AB]: 0x62-get-response/0xAB-unknown-kumo-packet.md
+
+The following command IDs are used as part of the identify cycle:
+
+| Command ID    | Name                       | Communication Flow | Notes                           |
+|---------------|----------------------------|--------------------|---------------------------------|
+| [0xC9][ag-C9] | Identify Base Capabilities | HP -> Kumo/MHK     |                                 |
+| [0xCD][ag-CD] | Unknown Identify Packet    | Unknown            |                                 |
+| 0xCE          | Unknown Identify Packet    | Unknown            | Extracted from KirigamineRemote |
+| 0xD0          | Unknown Identify Packet    | Unknown            | Extracted from KirigamineRemote |
+| 0xD1          | Unknown Identify Packet    | Unknown            | Extracted from KirigamineRemote | 
+
 [ag-C9]: 0x7B-identify-response/0xC9-base-capabilities.md
-[ac-CD]: 0x7B-identify-response/0xCD-unknown-identify-packet.md
+[ag-CD]: 0x7B-identify-response/0xCD-unknown-identify-packet.md
