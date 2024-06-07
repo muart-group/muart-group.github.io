@@ -12,12 +12,12 @@ will be used more frequently and tend to be preferred as they're overall less co
 All packets have a 5 byte header at the beginning, and a 1 byte checksum at the end.  Most packets seem to have a paired
 request/response structure.
 
-| Byte | Purpose             | METUS Name   | Possible Values   | Supported by mUART        |
-|------|---------------------|--------------|-------------------|---------------------------|
-| 0    | Sync                | Control Code | 0xFC              | Yes                       |
-| 1    | Packet Type         | Service Code | See this section. | Most types to some extent |
-| 2-3  | Protocol Identifier | Model Code   | 0x0130            | N/A                       |
-| 4    | Payload Size        | Data Length  | 0x00-0x10         | Yes                       |
+| Byte | Purpose             | METUS Name   | Possible Values | Supported by mUART        |
+|------|---------------------|--------------|-----------------|---------------------------|
+| 0    | Sync                | Control Code | 0xFC            | Yes                       |
+| 1    | Packet Type         | Service Code | See below       | Most types to some extent |
+| 2-3  | Protocol Identifier | Model Code   | 0x0130          | N/A                       |
+| 4    | Payload Size        | Data Length  | 0x00-0x10       | Yes                       |
 
 The protocol specification appears to require packet lengths of `0x01`, `0x02`, or `0x10`, depending on the packet type.
 Most packets will use a length of `0x10` even when the extra bytes are not relevant. Similarly, most units seem to

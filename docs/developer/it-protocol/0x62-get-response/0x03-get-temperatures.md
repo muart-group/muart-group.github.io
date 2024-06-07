@@ -2,16 +2,16 @@
 
 This command is used to retrieve temperature information from the heat pump.
 
-| Byte  | Purpose                    | Possible Values                                | Supported by mUART | Notes                                                                          |
-|-------|----------------------------|------------------------------------------------|--------------------|--------------------------------------------------------------------------------|
-| 0     | Command                    | 0x03                                           | Yes                |
-| 3     | Current Legacy Temperature | See [Legacy Current Temperatures][legacy-temp] |                    |                                                                                |
-| 5     | Outdoor Unit Temperature   | See [Enhanced Temperatures][enhanced-temp]     |                    | Rounded to nearest whole °C<br/>If 0x00, unsupported.                          |
-| 6     | Current Temperature        | See [Enhanced Temperatures][enhanced-temp]     |                    |                                                                                |
-| 7     | ???                        | See [Enhanced Temperatures][enhanced-temp]     |                    | Claimed to be the most recent value, but observations do not match that.       |
-| 8     | ???                        | 0x00, 0xFE                                     |                    |                                                                                |
-| 9     | ???                        | 0x42, 0x00                                     |                    |                                                                                |
-| 11-13 | Timestamp?                 | Scalar                                         |                    | Appears to be minutes since an unknown event.<br/>Not sent for all unit types. |
+| Byte  | Purpose                    | Possible Values                           | Supported by mUART | Notes                                                                          |
+|-------|----------------------------|-------------------------------------------|--------------------|--------------------------------------------------------------------------------|
+| 0     | Command                    | 0x03                                      | Yes                |
+| 3     | Current Legacy Temperature | [Legacy Current Temperature][legacy-temp] |                    |                                                                                |
+| 5     | Outdoor Unit Temperature   | [Enhanced Temperature][enhanced-temp-a]   |                    | Rounded to nearest whole °C<br/>If 0x00, unsupported.                          |
+| 6     | Current Temperature        | [Enhanced Temperature][enhanced-temp-a]   |                    |                                                                                |
+| 7     | ???                        | [Enhanced Temperature][enhanced-temp-a]   |                    | Claimed to be the most recent value, but observations do not match that.       |
+| 8     | ???                        | 0x00, 0xFE                                |                    |                                                                                |
+| 9     | ???                        | 0x42, 0x00                                |                    |                                                                                |
+| 11-13 | Timestamp?                 | Scalar                                    |                    | Appears to be minutes since an unknown event.<br/>Not sent for all unit types. |
 
 Bytes 6 and 7 are particularly confusing. First off, byte 7 is not sent by all units. SwiCago's thread has identified 
 Byte 7 to be the "most recent" reading, while Byte 6 is the last reading. While this works for external temperature 
@@ -19,7 +19,7 @@ sensors, it does not work for the internal sensor - see below sample packet wher
 completely ignores the 0xB0. Kumo's code claims that byte 6 is `room_temp_a`, and does not use byte 7 at all.
 
 [legacy-temp]: ../data-types/temperature-units.md#legacy-current-temperatures
-[enhanced-temp]: ../data-types/temperature-units.md#enhanced-temperatures
+[temp-a]: ../data-types/temperature-units.md#enhanced-temperatures
 
 ### Sample Packets
 

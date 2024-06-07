@@ -3,7 +3,7 @@
 Packet command types `0x1F` to `0x22` will encode function information in another bit-packed field, where the first bit
 is ignored, the second five bits are the setting code and the final two bits are the setting value, e.g. `X CCCCC VV`.
 
-```python3
+```python
 # assumes `data` is an array of bytes
 def decode_setting(data):
     result = {}

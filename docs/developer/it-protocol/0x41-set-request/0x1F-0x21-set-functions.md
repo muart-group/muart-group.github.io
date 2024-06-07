@@ -14,11 +14,11 @@ their units (e.g. do not send a set for a function normally in Page 2 as Page 1)
 
 Settings may be retrieved via [`0x62 0x20` - Get Functions][get-functions].
 
-| Byte | Purpose           | Possible Values                        | Supported by mUART | Notes                                    |
-|------|-------------------|----------------------------------------|--------------------|------------------------------------------|
-| 0    | Command Type      | 0x1F, 0x21                             | No                 |
-| 1-14 | Function Settings | See [Function Settings][function-type] |                    | New settings to apply                    |
-| 15   | End Byte          | 0x00                                   |                    | Unsure if 0x00 has a specific value here |
+| Byte | Purpose           | Possible Values                    | Supported by mUART | Notes                                    |
+|------|-------------------|------------------------------------|--------------------|------------------------------------------|
+| 0    | Command Type      | 0x1F, 0x21                         | No                 |
+| 1-14 | Function Settings | [Function Settings][function-type] |                    | New settings to apply                    |
+| 15   | End Byte          | 0x00                               |                    | Unsure if 0x00 has a specific value here |
 
 [get-functions]: ../0x62-get-response/0x20-0x22-get-functions.md
 [function-type]: ../data-types/function-settings.md

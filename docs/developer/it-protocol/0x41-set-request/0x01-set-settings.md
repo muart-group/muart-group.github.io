@@ -3,26 +3,26 @@
 This command is used to issue a new operation state to the heat pump. It controls core behaviors like power, mode,
 target temperature, and similar.
 
-| Byte | Purpose                   | Possible Values                                 | Supported by mUART | Notes                                                          |
-|------|---------------------------|-------------------------------------------------|--------------------|----------------------------------------------------------------|
-| 0    | Command Type              | 0x01                                            | Yes                |
-| 1-2  | Update Flags              | Traditional hex flags                           | Partially          | Indicates which parameters to update.                          |
-| 3    | Power                     | 0x00: Off<br/>0x01: On<br/>0x02: Test Mode      | No                 | Update flag 0x0001                                             |
-| 4    | Operating Mode            | See [Operating Modes](#operating-modes)         | No                 | Update flag 0x0002                                             |
-| 5    | Legacy Target Temperature | See [Legacy Setpoint Temperatures][legacy-temp] |                    | Update flag 0x0004                                             |
-| 6    | Fan                       | See [Fan Modes](#fan-modes)                     |                    | Update flag 0x0008<br/>Not all values supported for all units. |
-| 7    | Vertical Vane             | See [Vertical Vane](#vertical-vane)             |                    | Update flag 0x0010<br/>Defaults to 0x5 on air handlers (?)     |
+| Byte | Purpose                   | Possible Values                            | Supported by mUART | Notes                                                          |
+|------|---------------------------|--------------------------------------------|--------------------|----------------------------------------------------------------|
+| 0    | Command Type              | 0x01                                       | Yes                |
+| 1-2  | Update Flags              | Traditional hex flags                      | Partially          | Indicates which parameters to update.                          |
+| 3    | Power                     | 0x00: Off<br/>0x01: On<br/>0x02: Test Mode | No                 | Update flag 0x0001                                             |
+| 4    | Operating Mode            | [Operating Modes](#operating-modes)        | No                 | Update flag 0x0002                                             |
+| 5    | Legacy Target Temperature | [Legacy Setpoint Temperature][legacy-temp] |                    | Update flag 0x0004                                             |
+| 6    | Fan                       | [Fan Modes](#fan-modes)                    |                    | Update flag 0x0008<br/>Not all values supported for all units. |
+| 7    | Vertical Vane             | [Vertical Vane](#vertical-vane)            |                    | Update flag 0x0010<br/>Defaults to 0x5 on air handlers (?)     |
 | 8    |
 | 9    |
 | 10   |
-| 11   | Prohibit Flags            | See [Prohibit Flags](#prohibit-flags)           |                    | Update Flag 0x0040                                             |
+| 11   | Prohibit Flags            | [Prohibit Flags](#prohibit-flags)          |                    | Update Flag 0x0040                                             |
 | 12   |
-| 13   | Horizontal Vane           | See [Horizontal Vane](#horizontal-vane)         |                    | Update Flag 0x0100                                             |
-| 14   | Target Temperature        | See [Enhanced Temperatures][enhanced-temp]      |                    | Update Flag 0x0004.<br/>Takes priority over legacy temperature |
+| 13   | Horizontal Vane           | [Horizontal Vane](#horizontal-vane)        |                    | Update Flag 0x0100                                             |
+| 14   | Target Temperature        | [Enhanced Temperature][temp-a]             |                    | Update Flag 0x0004.<br/>Takes priority over legacy temperature |
 | 15   |
 
 [legacy-temp]: ../data-types/temperature-units.md#legacy-setpoint-temperatures
-[enhanced-temp]: ../data-types/temperature-units.md#enhanced-temperatures
+[temp-a]: ../data-types/temperature-units.md#enhanced-temperatures
 
 ### Sample Packets
 

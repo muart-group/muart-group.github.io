@@ -37,8 +37,9 @@ scale, it is unclear why observations do not match this.
 
 ## Enhanced Temperatures
 
-Enhanced temperatures are far simpler to calculate, capable of being converted from the wire using the formula 
-`(wire_data - 128) / 2`. Likewise, a temperature value can be converted to wire format using `(temp * 2) + 128`.
+Enhanced temperatures (internally known as "temperature scale A") are far simpler to calculate, capable of being 
+converted from the wire using the formula `(wire_data - 128) / 2`. Likewise, a temperature value can be converted to 
+wire format using `(temp * 2) + 128`.
 
 ## Celsius/Fahrenheit Conversion
 

@@ -9,12 +9,12 @@ Certain older heat pump units do not return Run Status as part of their operatio
 the MSZ-GE##VA and MSZ-FD##VA units, but otherse may be affected.
 :::
 
-| Byte | Purpose          | Possible Values                             | Supported by mUART | Notes                                                                                     |
-|------|------------------|---------------------------------------------|--------------------|-------------------------------------------------------------------------------------------|
-| 0    | CommandType      | 0x09                                        |                    |
-| 3    | Status Flags     | See [Status Flags](#status-flags)           |                    | A bitmask of flags indicating the heat pump's current status.                             |
-| 4    | Actual Fan Speed | See [Actual Fan Speeds](#actual-fan-speeds) |                    | The speed the fan is currently operating at (may be different from fan setting in `0x02`) |
-| 5    | Auto Mode?       | See [Auto Mode](#auto-modes)                | No                 | Per swicago lib, idle mode but has other values.                                          |
+| Byte | Purpose          | Possible Values                         | Supported by mUART | Notes                                                                                     |
+|------|------------------|-----------------------------------------|--------------------|-------------------------------------------------------------------------------------------|
+| 0    | CommandType      | 0x09                                    |                    |
+| 3    | Status Flags     | [Status Flags](#status-flags)           |                    | A bitmask of flags indicating the heat pump's current status.                             |
+| 4    | Actual Fan Speed | [Actual Fan Speeds](#actual-fan-speeds) |                    | The speed the fan is currently operating at (may be different from fan setting in `0x02`) |
+| 5    | Auto Mode?       | [Auto Mode](#auto-modes)                | No                 | Per swicago lib, idle mode but has other values.                                          |
 
 ### Example Packets
 

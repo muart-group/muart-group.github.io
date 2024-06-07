@@ -11,18 +11,19 @@ The below table is speculative and not confirmed.
 Implementations should not use these definitions until they've been verified more closely.
 :::
 
-| Byte | Purpose            | Possible Values                 | Supported by mUART | Notes |
-|------|--------------------|---------------------------------|--------------------|-------|
-| 0    | CommandType        | 0xA9                            |                    |       |
-| 1-4  | Adapter Timestamp  | See See [Timestamps][timestamp] |                    |       |
-| 5    | ???                | 0x00                            |                    |       |
-| 6    | ???                | 0x00, 0x01                      |                    |       |
-| 7    | Heat Setpoint      | Enhanced Temperature            | No                 |       |
-| 8    | Cool Setpoint      | Enhanced Temperature            | No                 |       |
-| 10   | ???                | 0x00, 0x07                      |                    |       |
-| 12   | ???                | 0x00                            |                    |       |
+| Byte | Purpose            | Possible Values                | Supported by mUART | Notes |
+|------|--------------------|--------------------------------|--------------------|-------|
+| 0    | CommandType        | 0xA9                           |                    |       |
+| 1-4  | Adapter Timestamp  | [Timestamp][timestamp]         |                    |       |
+| 5    | ???                | 0x00                           |                    |       |
+| 6    | ???                | 0x00, 0x01                     |                    |       |
+| 7    | Heat Setpoint      | [Enhanced Temperature][temp-a] | No                 |       |
+| 8    | Cool Setpoint      | [Enhanced Temperature][temp-a] | No                 |       |
+| 10   | ???                | 0x00, 0x07                     |                    |       |
+| 12   | ???                | 0x00                           |                    |       |
 
 [timestamp]: ../data-types/timestamps.md
+[temp-a]: ../data-types/temperature-units.md#enhanced-temperatures
 
 ### Sample Packets
 
