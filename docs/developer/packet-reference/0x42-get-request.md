@@ -16,4 +16,6 @@ sent via the body fields seem to be ignored.
 |------|-------------|-----------------|--------------------|----------------------|
 | 0    | CommandType | Multiple        | Partial            |                      |
 
-A listing of all possible command types that may be requested for this packet are listed in [`0x62` - Get Response](0x62-get-response).
+A listing of all possible command types that may be requested for this packet are listed in [`0x62` - Get Response][get-response].
+
+[get-response]: 0x62-get-response
