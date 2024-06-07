@@ -15,8 +15,8 @@ MHK2 if an upstream Kumo device has been detected.
 | 10   | ???                    | 0x00, 0x01                        |                    | Flag 0x20                           |
 | 11   | ???                    | 0x00, 0x01                        |                    | Flag 0x40                           |
 
-[timestamp]: ../../data-types/timestamps.md
-[temp]: ../../data-types/temperature-units.md#enhanced-temperatures
+[timestamp]: ../data-types/timestamps.md
+[temp]: ../data-types/temperature-units.md#enhanced-temperatures
 
 ## Temperature Setpoints
 

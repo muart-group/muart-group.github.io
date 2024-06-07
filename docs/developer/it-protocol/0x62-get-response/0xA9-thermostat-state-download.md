@@ -22,7 +22,7 @@ Implementations should not use these definitions until they've been verified mor
 | 10   | ???                | 0x00, 0x07                      |                    |       |
 | 12   | ???                | 0x00                            |                    |       |
 
-[timestamp]: ../../data-types/timestamps.md
+[timestamp]: ../data-types/timestamps.md
 
 ### Sample Packets
 

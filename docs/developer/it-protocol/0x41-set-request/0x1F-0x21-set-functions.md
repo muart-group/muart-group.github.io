@@ -21,4 +21,4 @@ Settings may be retrieved via [`0x62 0x20` - Get Functions][get-functions].
 | 15   | End Byte          | 0x00                                   |                    | Unsure if 0x00 has a specific value here |
 
 [get-functions]: ../0x62-get-response/0x20-0x22-get-functions.md
-[function-type]: ../../data-types/function-settings.md
+[function-type]: ../data-types/function-settings.md
