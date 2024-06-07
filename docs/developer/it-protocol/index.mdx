@@ -15,10 +15,12 @@ former for now; that is, the protocol is globally consistent but features are no
 For reference purposes, Mitsubishi-internal names are included in this documentation. However, community-defined names
 will be used more frequently and tend to be preferred as they're overall less confusing. 
 
-## Packet Header
+## Packet Layout
 
 All packets have a 5 byte header at the beginning, and a 1 byte checksum at the end.  Most packets seem to have a paired
 request/response structure.
+
+### Header Structure
 
 | Byte | Purpose             | METUS Name   | Possible Values | Supported by mUART        |
 |------|---------------------|--------------|-----------------|---------------------------|
@@ -30,6 +32,10 @@ request/response structure.
 The protocol specification appears to require packet lengths of `0x01`, `0x02`, or `0x10`, depending on the packet type.
 Most packets will use a length of `0x10` even when the extra bytes are not relevant. Similarly, most units seem to
 accept packets of any length (though caution is advised).
+
+### Checksum
+
+The final byte of any packet is the checksum, which can be calculated with `(0xFC - sum(packetBytes)) & 0xFF`.
 
 ## Known Packet Types
 
