@@ -1,39 +1,35 @@
-# Command `0xA8` - Unknown Kumo Packet
+# Command `0xA8` - MHK2 State Update
 
-Sent from the MHK2 to a Kumo Cloud unit, captured via logic analyzer.
+This command appears to be intended to synchronize the MHK2's state to the Kumo Cloud. It is sent on a regular cadence by
+the MHK2 if an upstream Kumo device has been detected.
 
-| Byte | Purpose                | Possible Values             | Supported by mUART | Notes                               |
-|------|------------------------|-----------------------------|--------------------|-------------------------------------|
-| 0    | Command Type           | 0xA8                        | No                 |                                     |
-| 1    | Flags                  | Traditional hex flags       |                    | Determines which fields to process  |
-| 2-5  | Thermostat Time (?)    | See [Timestamps][timestamp] |                    | Flag 0x01                           |
-| 6    | ???                    | 0x00, 0x01                  |                    | Flag 0x02                           |
-| 7    | ???                    | 0x00, 0x01, 0x02            |                    | Flag 0x04                           |
-| 8    | Auto Heat Setpoint (?) | Varies                      |                    | Flag 0x08<br/>Resets if invalid (?) |
-| 9    | Auto Cool Setpoint (?) | Varies                      |                    | Flag 0x10<br/>Resets if invalid (?) |
-| 10   | ???                    | 0x00, 0x01                  |                    | Flag 0x20                           |
-| 11   | ???                    | 0x00, 0x01                  |                    | Flag 0x40                           |
+| Byte | Purpose                | Possible Values                   | Supported by mUART | Notes                               |
+|------|------------------------|-----------------------------------|--------------------|-------------------------------------|
+| 0    | Command Type           | 0xA8                              | Partial            |                                     |
+| 1    | Flags                  | Traditional hex flags             |                    | Determines which fields to process  |
+| 2-5  | Thermostat Time (?)    | See [Timestamps][timestamp]       |                    | Flag 0x01                           |
+| 6    | ???                    | 0x00, 0x01                        |                    | Flag 0x02                           |
+| 7    | ???                    | 0x00, 0x01, 0x02                  |                    | Flag 0x04                           |
+| 8    | Heating Setpoint       | See [Enhanced Temperatures][temp] |                    | Flag 0x08<br/>Resets if invalid (?) |
+| 9    | Cooling Setpoints      | Varies                            |                    | Flag 0x10<br/>Resets if invalid (?) |
+| 10   | ???                    | 0x00, 0x01                        |                    | Flag 0x20                           |
+| 11   | ???                    | 0x00, 0x01                        |                    | Flag 0x40                           |
 
 [timestamp]: ../../data-types/timestamps.md
+[temp]: ../../data-types/temperature-units.md#enhanced-temperatures
 
-### Sample Packets
+## Temperature Setpoints
+
+The MHK2 only has two temperature setpoints *total*: one for heating and one for cooling. Changing either of these setpoints
+in auto mode or in heat-only/cool-only mode will also update the setpoints in these fields.
+
+In order to update the unit setpoints for heating and cooling mode while a Kumo is connected (or a Kumo is being emulated), the
+setpoints must be sent via packet A9. Otherwise, the MHK will detect a desync on its next receipt of a Get Settings and attempt
+to issue a correction.
+
+## Sample Packets
 
 ```
-[FC 41 01 30 10] A8 01 1C DD 51 E0 00 00 00 00 00 00 00 00 00 00 [AB]
-[FC 41 01 30 10] A8 01 1C DD 51 EA 00 00 00 00 00 00 00 00 00 00 [A1]
 [FC 41 01 30 10] A8 01 1C DD 51 F3 00 00 00 00 00 00 00 00 00 00 [98]
-[FC 41 01 30 10] A8 18 00 00 00 00 00 00 AD B3 00 00 00 00 00 00 [5E]  // ???????
-[FC 41 01 30 10] A8 01 1C DD 52 06 00 00 00 00 00 00 00 00 00 00 [84]
-[FC 41 01 30 10] A8 01 1C DD 52 11 00 00 00 00 00 00 00 00 00 00 [79]
-[FC 41 01 30 10] A8 01 1C DD 52 19 00 00 00 00 00 00 00 00 00 00 [71]
-[FC 41 01 30 10] A8 01 1C DD 52 23 00 00 00 00 00 00 00 00 00 00 [67]
-[FC 41 01 30 10] A8 01 1C DD 52 2B 00 00 00 00 00 00 00 00 00 00 [5F]
-[FC 41 01 30 10] A8 01 1C DD 52 35 00 00 00 00 00 00 00 00 00 00 [55]
-[FC 41 01 30 10] A8 01 1C DD 52 43 00 00 00 00 00 00 00 00 00 00 [47]
-[FC 41 01 30 10] A8 01 1C DD 52 4D 00 00 00 00 00 00 00 00 00 00 [3D]
-[FC 41 01 30 10] A8 01 1C DD 52 57 00 00 00 00 00 00 00 00 00 00 [33]
-[FC 41 01 30 10] A8 01 1C DD 52 60 00 00 00 00 00 00 00 00 00 00 [2A]
-[FC 41 01 30 10] A8 01 1C DD 52 68 00 00 00 00 00 00 00 00 00 00 [22]
+[FC 41 01 30 10] A8 18 00 00 00 00 00 00 AD B3 00 00 00 00 00 00 [5E]
 ```
-
-See [this page](https://github.com/Sammy1Am/mitsubishi-uart/wiki/Interesting-Packets#kumomhk2-heartbeat) for in-situ information about this packet.
