@@ -97,19 +97,19 @@ prohibit flags are in place.
 
 ## Horizontal Vane
 
-| Value | Name                                    | Symbol |
-|-------|-----------------------------------------|--------|
-| 0     | Auto                                    |        |
-| 1     | Full Left                               | `<<`   |
-| 2     | Left                                    | `<`    |
-| 3     | Center                                  | `\|`   |
-| 4     | Right                                   | `>`    |
-| 5     | Full Right                              | `>>`   |
-| 6     | (UNCONFIRMED) Split (Left/Center)       |        |
-| 7     | (UNCONFIRMED) Split (Center/Right)      |        |
-| 8     | Split (Left/Right)                      | `<>`   |
-| 9     | (UNCONFIRMED) Split (Left/Center/Right) |        |
-| 12    | Swing Mode                              |        |
+| Value | Name                      | Symbol | Notes                        |
+|-------|---------------------------|--------|------------------------------|
+| 0     | Auto                      |        |                              |
+| 1     | Full Left                 | `<<`   |                              |
+| 2     | Left                      | `<`    |                              |
+| 3     | Center                    | `\|`   |                              |
+| 4     | Right                     | `>`    |                              |
+| 5     | Full Right                | `>>`   |                              |
+| 6     | Split (Left/Center)       |        | Unconfirmed, may be JP only. |
+| 7     | Split (Center/Right)      |        | Unconfirmed, may be JP only. |
+| 8     | Split (Left/Right)        | `<>`   |                              |
+| 9     | Split (Left/Center/Right) |        | Unconfirmed, may be JP only. |
+| 12    | Swing Mode                |        |                              |
 
 Note that auto mode may not be supported on all units, and appears to get overwritten with relative frequency (but 
 *does* appear to otherwise work).
