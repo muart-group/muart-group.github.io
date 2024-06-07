@@ -11,7 +11,7 @@ the MHK2 if an upstream Kumo device has been detected.
 | 6    | ???                    | 0x00, 0x01                        |                    | Flag 0x02                           |
 | 7    | ???                    | 0x00, 0x01, 0x02                  |                    | Flag 0x04                           |
 | 8    | Heating Setpoint       | See [Enhanced Temperatures][temp] |                    | Flag 0x08<br/>Resets if invalid (?) |
-| 9    | Cooling Setpoints      | Varies                            |                    | Flag 0x10<br/>Resets if invalid (?) |
+| 9    | Cooling Setpoint       | See [Enhanced Temperatures][temp] |                    | Flag 0x10<br/>Resets if invalid (?) |
 | 10   | ???                    | 0x00, 0x01                        |                    | Flag 0x20                           |
 | 11   | ???                    | 0x00, 0x01                        |                    | Flag 0x40                           |
 
