@@ -2,10 +2,18 @@
 
 Packets sent on Mitsubishi's CN105 port seem to follow a general structure, but the specific content is still not
 entirely well mapped out.  Eventually I'm hoping to have this wiki compile all the known information, but quite a bit
-of data is available nonetheless.
+of data is available nonetheless. Because this reference manual is not based on any formal documentation, developers
+should expect significant changes to both layout and information as new findings are discovered.
+
+This protocol reference covers *solely* the air-to-air variant of the IT protocol (identifier `0x0130`). The 
+air-to-water protocol variant (identifier `0x027A`) uses significantly different data layouts, even if the general
+structure is the same. Even so, there appear to be regional differences between version of the IT protocol. For 
+example, Japanese units currently expose fields that are not present on NA/EU/AUS units, though it is not known if this
+is purelymissing features or if the Japanese market actually has a different protocol. This reference assumes the
+former for now; that is, the protocol is globally consistent but features are not available in non-JP markets.
 
 For reference purposes, Mitsubishi-internal names are included in this documentation. However, community-defined names
-will be used more frequently and tend to be preferred as they're overall less confusing.
+will be used more frequently and tend to be preferred as they're overall less confusing. 
 
 ## Packet Header
 
@@ -16,7 +24,7 @@ request/response structure.
 |------|---------------------|--------------|-----------------|---------------------------|
 | 0    | Sync                | Control Code | 0xFC            | Yes                       |
 | 1    | Packet Type         | Service Code | See below       | Most types to some extent |
-| 2-3  | Protocol Identifier | Model Code   | 0x0130          | N/A                       |
+| 2-3  | Protocol Identifier | Model Code   | 0x0130, 0x027A  | N/A                       |
 | 4    | Payload Size        | Data Length  | 0x00-0x10       | Yes                       |
 
 The protocol specification appears to require packet lengths of `0x01`, `0x02`, or `0x10`, depending on the packet type.
