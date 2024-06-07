@@ -1,8 +1,8 @@
 {
   "label": "Data Types",
   "link": {
-    "type": "generated-index",
-    "description": "A reference of all the packet types we know."
+    "type": "doc",
+    "id": "index"
   },
   "position": "100"
 }
