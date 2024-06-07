@@ -1,18 +1,13 @@
----
-sidebar_position: 41
----
+# Command `0xC9`: Base Capabilities
 
-# Packet `0x7B`: Identify Response
-
-A response to an identify request, as sent in a 
-[`0x5B` - Identify Request](0x5B-identify-request) packet. Appears to be used to identify information 
-about the unit that the thermostat is connected to.
+This command is used to retrieve base capability information from a heat pump. This command response is used to check
+whether certain features exist on any given unit, and is used to self-configure units accordingly.
 
 | Byte | Purpose           | Possible Values | Supported by mUART | Notes |
 |------|-------------------|-----------------|--------------------|-------|
-| 0    | CommandType       | 0xC9            |                    |
-| 1-6  | TBD               | 0x03            |                    |
-| 7-15 | Unit Capabilities | (See below)     |                    |
+| 0    | CommandType       | 0xC9            |                    |       |
+| 1-6  | "Arbitrary Data"  | 0x03            |                    |       |
+| 7-15 | Unit Capabilities | See below       |                    |       |
 
 ## Unit Capabilities
 
@@ -39,7 +34,7 @@ about the unit that the thermostat is connected to.
 | 9    | 0x04    | ???                                    | Observed true and false                                    |
 | 9    | 0x08    | ???                                    |                                                            |
 | 9    | 0x10    | ???                                    | Observed true and false                                    |
-| 9    | 0x20    | Supports Outside Temp Reporting        | Unconfirmed!                                               |
+| 9    | 0x20    | Supports Outside Temp Reporting        | Unconfirmed, possibly JP units only.                       |
 | 9    | 0x40    | ???                                    |                                                            |
 | 9    | 0x80    | ???                                    | Observed true and false                                    |
 | 10   | All     | Minimum cool/dry temp setpoint         |                                                            |

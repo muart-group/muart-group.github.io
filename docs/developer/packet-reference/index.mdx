@@ -46,7 +46,7 @@ them.
 [sc-5A]: 0x5A-connect-request.md
 [sc-7A]: 0x7A-connect-response.md
 [sc-5B]: 0x5B-identify-request.md
-[sc-7B]: 0x7B-identify-response.md
+[sc-7B]: 0x7B-identify-response/index.mdx
 
 ## Known Command IDs
 
@@ -54,29 +54,30 @@ The below table is a quick reference of all known command IDs (otherwise known a
 that are currently known. These only apply to packets [`0x41` - Set Request][set-request] and
 [`0x62` - Get Response][get-response] (and their companions `0x42` and `0x61`, respectively).
 
-| Command ID       | Name                     | Communication Flow |
-|------------------|--------------------------|--------------------|
-| [0x01][ag-01]    | Set Settings             | Kumo/MHK -> HP     |
-| [0x02][ag-02]    | Get Settings             | HP -> Kumo/MHK     |
-| [0x03][ag-03]    | Get Temperatures         | HP -> Kumo/MHK     |
-| [0x04][ag-04]    | Get Error State          | HP -> Kumo/MHK     |
-| [0x05][ag-05]    | Get Timer Info           | HP -> Kumo/MHK     |
-| [0x06][ag-06]    | Get Operation State      | HP -> Kumo/MHK     |
-| [0x07][ag-07]    | Set Remote Temperature   | Kumo/MHK -> HP     |
-| [0x08][ag-08]    | Set Run State            | Kumo/MHK -> HP     |
-| [0x09][ag-09]    | Get Run State            | HP -> Kumo/MHK     |
-| [0x1F][ag-1F-21] | Set Function Page 1      | Kumo/MHK -> HP     |
-| [0x20][ag-20-22] | Get Function Page 1      | HP -> Kumo/MHK     |
-| [0x21][ag-1F-21] | Set Function Page 2      | Kumo/MHK -> HP     |
-| [0x22][ag-20-22] | Get Function Page 2      | HP -> Kumo/MHK     |
-| [0xA6][ag-A6]    | Kumo Sensor Status       | MHK -> Kumo        |
-| [0xA7][ag-A7]    | Thermostat Hello         | MHK -> Kumo        |
-| [0xA8][ag-A8]    | Unknown Kumo Packet      | MHK -> Kumo        |
-| [0xA9][ag-A9]    | Kumo Adapter State       | Kumo -> MHK        |
-| [0xAA][ag-AA]    | Unknown Kumo Packet      | MHK -> Kumo        |
-| [0xAB][ag-AB]    | Kumo Adapter State       | Kumo -> MHK        |
-| [0xC9][ag-C9]    | Extended Heat Pump Hello | HP -> Kumo/MHK     |
-| 0xCA             | Unknown                  | Unknown            |
+| Command ID       | Name                       | Communication Flow |
+|------------------|----------------------------|--------------------|
+| [0x01][ag-01]    | Set Settings               | Kumo/MHK -> HP     |
+| [0x02][ag-02]    | Get Settings               | HP -> Kumo/MHK     |
+| [0x03][ag-03]    | Get Temperatures           | HP -> Kumo/MHK     |
+| [0x04][ag-04]    | Get Error State            | HP -> Kumo/MHK     |
+| [0x05][ag-05]    | Get Timer Info             | HP -> Kumo/MHK     |
+| [0x06][ag-06]    | Get Operation State        | HP -> Kumo/MHK     |
+| [0x07][ag-07]    | Set Remote Temperature     | Kumo/MHK -> HP     |
+| [0x08][ag-08]    | Set Run State              | Kumo/MHK -> HP     |
+| [0x09][ag-09]    | Get Run State              | HP -> Kumo/MHK     |
+| [0x1F][ag-1F-21] | Set Function Page 1        | Kumo/MHK -> HP     |
+| [0x20][ag-20-22] | Get Function Page 1        | HP -> Kumo/MHK     |
+| [0x21][ag-1F-21] | Set Function Page 2        | Kumo/MHK -> HP     |
+| [0x22][ag-20-22] | Get Function Page 2        | HP -> Kumo/MHK     |
+| [0xA6][ag-A6]    | Kumo Sensor Status         | MHK -> Kumo        |
+| [0xA7][ag-A7]    | Thermostat Hello           | MHK -> Kumo        |
+| [0xA8][ag-A8]    | Thermostat State Upload    | MHK -> Kumo        |
+| [0xA9][ag-A9]    | Thermostat State Download  | Kumo -> MHK        |
+| [0xAA][ag-AA]    | Unknown Kumo Packet        | MHK -> Kumo        |
+| [0xAB][ag-AB]    | Unknown Kumo Packet        | Kumo -> MHK        |
+| [0xC9][ag-C9]    | Identify Base Capabilities | HP -> Kumo/MHK     |
+| 0xCA             | Unknown                    | Unknown            |
+| [0xCD][ag-CD]    | Unknown Identify Packet    | Unknown            |
 
 [set-request]: 0x41-set-request/index.mdx
 [get-response]: 0x62-get-response/index.mdx
@@ -93,8 +94,9 @@ that are currently known. These only apply to packets [`0x41` - Set Request][set
 [ag-20-22]: 0x62-get-response/0x20-0x22-get-functions.md
 [ag-A6]: 0x41-set-request/0xA6-kumo-sensor-status.md
 [ag-A7]: 0x41-set-request/0xA7-thermostat-hello.md
-[ag-A8]: 0x41-set-request/0xA8-unknown-kumo-packet.md
-[ag-A9]: 0x62-get-response/0xA9-kumo-adapter-state.md
+[ag-A8]: 0x41-set-request/0xA8-thermostat-state-upload.md
+[ag-A9]: 0x62-get-response/0xA9-thermostat-state-download.md
 [ag-AA]: 0x41-set-request/0xAA-unknown-kumo-packet.md
 [ag-AB]: 0x62-get-response/0xAB-unknown-kumo-packet.md
-[ag-C9]: 0x7B-identify-response.md
+[ag-C9]: 0x7B-identify-response/0xC9-base-capabilities.md
+[ac-CD]: 0x7B-identify-response/0xCD-unknown-identify-packet.md

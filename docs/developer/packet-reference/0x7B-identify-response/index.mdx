@@ -1,0 +1,20 @@
+import DocCardList from '@theme/DocCardList';
+
+# Packet `0x7B`: Identify Response
+
+This packet is a response to an [`0x5B` - Identify Request](0x5B-identify-request) packet sent by a thermostat or cloud
+conenction device. Packets of this type tend to contain information about a heat pump's capabilities and enabled
+features.
+
+| Byte | Purpose     | Possible Values | Supported by mUART | Notes |
+|------|-------------|-----------------|--------------------|-------|
+| 0    | CommandType | 0xC9            |                    |       |
+| 1-15 | Body        | Varies          |                    |       |
+
+## Supported Command IDs
+
+Not all command IDs are supported by all units. Refer to the individual documentation for each command ID to determine
+when a packet can or can't be sent.
+
+<DocCardList />
+

@@ -1,7 +1,7 @@
-# Command `0xA8` - MHK2 State Update
+# Command `0xA8` - Thermostat State Upload
 
-This command appears to be intended to synchronize the MHK2's state to the Kumo Cloud. It is sent on a regular cadence by
-the MHK2 if an upstream Kumo device has been detected.
+This command appears to be used to "upload" the MHK2's state to the Kumo Cloud. It is sent on a regular cadence by the
+MHK2 if an upstream Kumo device has been detected.
 
 | Byte | Purpose                | Possible Values                   | Supported by mUART | Notes                               |
 |------|------------------------|-----------------------------------|--------------------|-------------------------------------|
