@@ -53,10 +53,23 @@ below). Active research about these values is currently being tracked as part of
 
 ## Auto Modes
 
-| Value | Name |
-|-------|------|
-| 0x00  | N/A  |
-| 0x01  | Cool |
-| 0x02  | Heat |
-| 0x41  | ???  |
-| 0x42  | ???  |
+:::note
+The information in this field comes from [EChavet's library](https://github.com/echavet/MitsubishiCN105ESPHome). Not all
+information here has been confirmed to be present on all units.
+:::
+
+The auto mode field appears to allow a heat pump to return additional information as to what state automatic resolution
+is in. That is, if the operation mode is set to auto, this field will denote what exactly the unit is doing.
+
+This byte may additionally contain extra bits (namely, `0x40`), though the meaning of this bit is currently unknown at
+this time.
+
+| Value  | Name                |
+|--------|---------------------|
+| 0x00   | N/A                 |
+| 0x01   | Cool                |
+| 0x02   | Heat                |
+| 0x03   | "Leader" Mode (???) |
+| 0x40   | ???                 |
+| 0x41   | ???                 |
+| 0x42   | ???                 |
