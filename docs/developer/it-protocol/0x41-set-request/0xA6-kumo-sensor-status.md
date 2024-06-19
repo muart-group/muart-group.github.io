@@ -8,7 +8,6 @@ The information about this packet is speculative at the moment and should not be
 have any extra sensor hardware, please reach out or add your packets so that we can investigate further!
 :::
 
-
 | Byte | Purpose                    | Possible Values  | Supported by mUART | Notes         |
 |------|----------------------------|------------------|--------------------|---------------|
 | 0    | Command Type               | 0xA6             | No                 |               |
@@ -26,6 +25,8 @@ have any extra sensor hardware, please reach out or add your packets so that we 
 ```
 [FC.41.01.30.10] A6.1C.00.00.00.34.00.01.00.00.00.00.00.00.00.00 [87]  // captured twice with logic analyzer 
 [FC.41.01.30.10] A6.1C.00.00.00.30.00.01.00.00.00.00.00.00.00.00 [8B]
+
+[FC.41.01.30.10] A6.1C.00.00.00.28.00.05.00.00.00.00.00.00.00.00 [8F] // with IAS connected
 ```
 
 ## Battery States
@@ -42,8 +43,11 @@ have any extra sensor hardware, please reach out or add your packets so that we 
 
 Unconfirmed, needs validation from people who have relevant hardware.
 
-| Flag | Device                                                                                   |
-|------|------------------------------------------------------------------------------------------|
-| 0x01 | [MHK2](https://mylinkdrive.com/USA/Controls/MHK2?product&categoryName=Controls)/MHK1 (?) |
-| 0x02 | Outdoor Sensor (MOS1?)                                                                   |
-| 0x04 | [Indoor Sensor](https://mylinkdrive.com/USA/Controls/PAC_USWHS003_TH_1) (?)              |
+| Flag | Device             | Known Models            | 
+|------|--------------------|-------------------------|
+| 0x01 | Thermostat         | [MHK2][mhk2]/MHK1 (?)   |
+| 0x02 | Outdoor Sensor (?) | Unknown, possibly MOS1? |
+| 0x04 | Indoor Sensor      | [RCHTSENSOR][rcht]      |
+
+[mhk2]: https://mylinkdrive.com/USA/Controls/MHK2?product&categoryName=Controls
+[rcht]: https://www.honeywellstore.com/store/products/honeywell-smart-room-sensor-for-t9t10-thermostats-rchtsensor-1pk.htm
