@@ -11,19 +11,23 @@ The below table is speculative and not confirmed.
 Implementations should not use these definitions until they've been verified more closely.
 :::
 
-| Byte | Purpose            | Possible Values                | Supported by mUART | Notes |
-|------|--------------------|--------------------------------|--------------------|-------|
-| 0    | CommandType        | 0xA9                           |                    |       |
-| 1-4  | Adapter Timestamp  | [Timestamp][timestamp]         |                    |       |
-| 5    | ???                | 0x00                           |                    |       |
-| 6    | ???                | 0x00, 0x01                     |                    |       |
-| 7    | Heat Setpoint      | [Enhanced Temperature][temp-a] | No                 |       |
-| 8    | Cool Setpoint      | [Enhanced Temperature][temp-a] | No                 |       |
-| 10   | ???                | 0x00, 0x07                     |                    |       |
-| 12   | ???                | 0x00                           |                    |       |
+| Byte | Purpose              | Possible Values                | Supported by mUART | Notes |
+|------|----------------------|--------------------------------|--------------------|-------|
+| 0    | CommandType          | 0xA9                           |                    |       |
+| 1-4  | Adapter Timestamp    | [Timestamp][timestamp]         |                    |       |
+| 5    | ???                  | 0x00                           |                    |       |
+| 6    | Auto Mode Active (?) | 0x00, 0x01                     |                    |       |
+| 7    | Heat Setpoint        | [Enhanced Temperature][temp-a] | No                 |       |
+| 8    | Cool Setpoint        | [Enhanced Temperature][temp-a] | No                 |       |
+| 10   | ???                  | 0x00, 0x07                     |                    |       |
+| 12   | ???                  | 0x00                           |                    |       |
 
 [timestamp]: ../data-types/timestamps.md
 [temp-a]: ../data-types/temperature-units.md#enhanced-temperatures
+
+A blank timestamp (all zeroes) will cause a MHK2 unit to fail to successfully boot, perpetually showing a `WAIT` screen.
+
+If a heat or cool setpoint are unset (value `0x00`), the MHK appears to assume that its settings are correct.
 
 ### Sample Packets
 
