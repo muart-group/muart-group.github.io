@@ -6,9 +6,9 @@ This command is used to retrieve temperature information from the heat pump.
 |-------|----------------------------|-------------------------------------------|--------------------|--------------------------------------------------------------------------------|
 | 0     | Command                    | 0x03                                      | Yes                |
 | 3     | Current Legacy Temperature | [Legacy Current Temperature][legacy-temp] |                    |                                                                                |
-| 5     | Outdoor Unit Temperature   | [Enhanced Temperature][enhanced-temp-a]   |                    | Rounded to nearest whole °C<br/>If 0x00, unsupported.                          |
-| 6     | Current Temperature        | [Enhanced Temperature][enhanced-temp-a]   |                    |                                                                                |
-| 7     | ???                        | [Enhanced Temperature][enhanced-temp-a]   |                    | Claimed to be the most recent value, but observations do not match that.       |
+| 5     | Outdoor Unit Temperature   | [Enhanced Temperature][temp-a]            |                    | Rounded to nearest whole °C<br/>If 0x00, unsupported.                          |
+| 6     | Current Temperature        | [Enhanced Temperature][temp-a]            |                    |                                                                                |
+| 7     | ???                        | [Enhanced Temperature][temp-a]            |                    | Claimed to be the most recent value, but observations do not match that.       |
 | 8     | ???                        | 0x00, 0xFE                                |                    |                                                                                |
 | 9     | ???                        | 0x42, 0x00                                |                    |                                                                                |
 | 11-13 | Timestamp?                 | Scalar                                    |                    | Appears to be minutes since an unknown event.<br/>Not sent for all unit types. |
@@ -17,6 +17,11 @@ Bytes 6 and 7 are particularly confusing. First off, byte 7 is not sent by all u
 Byte 7 to be the "most recent" reading, while Byte 6 is the last reading. While this works for external temperature 
 sensors, it does not work for the internal sensor - see below sample packet where it goes from 0xA9 to 0xAC and 
 completely ignores the 0xB0. Kumo's code claims that byte 6 is `room_temp_a`, and does not use byte 7 at all.
+
+The Outdoor Unit Temperature byte may not be present on all units, and appears to be controlled by the appropriate
+flag (byte 9, bit 0x20) in the [capabilities response](../0x7B-identify-response/0xC9-base-capabilities.md). This
+field appears to not necessarily be an accurate measure, as the heat pump's outdoor unit tends to cause local
+temperature changes when it's operating. This field is not supported by all units. 
 
 [legacy-temp]: ../data-types/temperature-units.md#legacy-current-temperatures
 [temp-a]: ../data-types/temperature-units.md#enhanced-temperatures

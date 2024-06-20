@@ -73,6 +73,11 @@ const config: Config = {
           label: 'ESPHome Documentation',
           position: 'left',
         },
+        { 
+          href: 'https://discordapp.com/invite/VRpgcF5JG5',
+          label: 'Discord',
+          position: 'right',
+        },
         {
           href: 'https://github.com/muart-group',
           label: 'GitHub',
