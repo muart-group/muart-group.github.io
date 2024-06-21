@@ -25,11 +25,12 @@ sensor:
     filters:
       - lambda: return ((x - 32.0) * (5.0 / 9.0));  # Remember to convert F to C!
 
-mitsubishi_uart:
-  uart_heatpump: hp_uart
-  # ...
-  temperature_sources:
-    - office_temperature
+climate:
+  - platform: mitsubishi_itp
+    uart_heatpump: hp_uart
+    # ...
+    temperature_sources:
+      - office_temperature
 ```
 
 The sensor name as defined in ESPHome will also display in the Home Assistant UI for the temperature selector.

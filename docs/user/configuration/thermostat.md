@@ -21,10 +21,11 @@ uart:
 Then, the thermostat must be registered with the component using the special `uart_thermostat` key:
 
 ```yaml
-mitsubishi_uart:
-  uart_heatpump: hp_uart
-  thermostat_uart: ts_uart
-  ...
+climate:
+  - platform: mitsubishi_itp
+    uart_heatpump: hp_uart
+    uart_thermostat: ts_uart
+    ...
 ```
 
 The microcontroller will forward most packets transparently, so the thermostat should work exactly as it normally would.

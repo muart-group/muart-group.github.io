@@ -12,10 +12,11 @@ communication is slow, it's recommended to keep this at no less than 5 seconds. 
 ESPHome or Home Assistant from displaying updates performed via remote or thermostat in a timely manner.
 
 ```yaml
-mitsubishi_uart:
-  uart_heatpump: hp_uart
-  # ...
-  update_interval: 10s
+climate:
+  - platform: mitsubishi_itp
+    uart_heatpump: hp_uart
+    # ...
+    update_interval: 10s
 ```
 
 ### `temperature_sources`
@@ -35,15 +36,16 @@ unit may not support. Leave this key un-set to use the default modes. Adding new
 code is not aware of them.
 
 ```yml
-mitsubishi_uart:
-  # ...
-  supported_modes:
-    - 'OFF'
-    - HEAT
-    - DRY
-    - COOL
-    - FAN_ONLY
-    - HEAT_COOL
+climate:
+  - platform: mitsubishi_itp
+    # ...
+    supported_modes:
+      - 'OFF'
+      - HEAT
+      - DRY
+      - COOL
+      - FAN_ONLY
+      - HEAT_COOL
 ```
 
 ### `supported_fan_modes` and `custom_fan_modes`
@@ -52,16 +54,17 @@ These keys allow removing fan modes not supported by the unit. Leave this key un
 new modes will not have any effect, as the code is not aware of them.
 
 ```yml
-mitsubishi_uart:
-  # ...
-  supported_fan_modes:
-    - AUTO
-    - QUIET
-    - LOW
-    - MEDIUM
-    - HIGH
-  custom_fan_modes:
-    - VERYHIGH
+climate:
+  - platform: mitsubishi_itp
+    # ...
+    supported_fan_modes:
+      - AUTO
+      - QUIET
+      - LOW
+      - MEDIUM
+      - HIGH
+    custom_fan_modes:
+      - VERYHIGH
 ```
 
 The `custom_fan_modes` key is used to include the `VERYHIGH` (otherwise known as **Powerful**) state, which is not
@@ -73,14 +76,15 @@ mUART also supports setting configurations for the co-exposed `sensors`, `select
 normally do not need to be changed, but exist for cases where overrides are necessary.
 
 ```yml
-mitsubishi_uart:
-  # ...
-  sensors:
-    current_temperature:
-      # ...
-  selects:
-    temperature_source_select:
-      # ...
+climate:
+  - platform: mitsubishi_itp
+    # ...
+    sensors:
+      current_temperature:
+        # ...
+    selects:
+      temperature_source_select:
+        # ...
 ```
 
 A list of entity IDs is available [on the Entities documentation page](../entities.md).

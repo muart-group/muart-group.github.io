@@ -48,7 +48,7 @@ manually retrieved from the mUART fork. This is reflected in the minimal example
 ```yaml
 external_components:
   - source: github://muart-group/esphome@dev
-    components: [ mitsubishi_uart ]
+    components: [ mitsubishi_itp ]
     
 # Remember to disable logger if using the primary UART!
 logger:
@@ -63,8 +63,9 @@ uart:
     tx_pin:
       number: GPIO1
 
-mitsubishi_uart:
-  uart_heatpump: hp_uart
+climate:
+  - platform: mitsubishi_itp
+    uart_heatpump: hp_uart
 ```
 
 More advanced configuration options are available in the [configuration](configuration/index.md) pages of this document.
