@@ -65,6 +65,7 @@ uart:
 
 climate:
   - platform: mitsubishi_itp
+    name: "Climate"
     uart_heatpump: hp_uart
 ```
 
