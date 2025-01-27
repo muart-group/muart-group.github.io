@@ -21,8 +21,8 @@ esphome:
     priority: 260
     then:
       - select.set:
-        id: temp_source_select
-        option: "Thermostat"
+          id: temp_source_select
+          option: "Thermostat"
 ```
 
 Where `"Thermostat"` is the display name of the temperature source you want to select.  "Internal" will always be present and "Thermostat" will be present if a thermostat is configured.
