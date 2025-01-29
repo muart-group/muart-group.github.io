@@ -5,7 +5,7 @@ This command is used to retrieve temperature information from the heat pump.
 | Byte  | Purpose                    | Possible Values                           | Supported by mUART | Notes                                                                          |
 |-------|----------------------------|-------------------------------------------|--------------------|--------------------------------------------------------------------------------|
 | 0     | Command                    | 0x03                                      | Yes                |
-| 3     | Current Legacy Temperature | [Legacy Current Temperature][legacy-temp] |                    |                                                                                |
+| 3     | Current Temperature        | [Legacy HP Room Temperature][legacy-temp] |                    |                                                                                |
 | 5     | Outdoor Unit Temperature   | [Enhanced Temperature][temp-a]            |                    | Rounded to nearest whole °C<br/>If 0x00, unsupported.                          |
 | 6     | Current Temperature        | [Enhanced Temperature][temp-a]            |                    |                                                                                |
 | 7     | ???                        | [Enhanced Temperature][temp-a]            |                    | Claimed to be the most recent value, but observations do not match that.       |
@@ -23,7 +23,7 @@ flag (byte 9, bit 0x20) in the [capabilities response](../0x7B-identify-response
 field appears to not necessarily be an accurate measure, as the heat pump's outdoor unit tends to cause local
 temperature changes when it's operating. This field is not supported by all units. 
 
-[legacy-temp]: ../data-types/temperature-units.md#legacy-current-temperatures
+[legacy-temp]: ../data-types/temperature-units.md#heat-pump-room-temperature
 [temp-a]: ../data-types/temperature-units.md#enhanced-temperatures
 
 ### Sample Packets

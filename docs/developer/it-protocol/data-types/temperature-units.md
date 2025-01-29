@@ -3,7 +3,19 @@
 The IT Protocol defines a few different temperature units for internal use. Care must be taken to select the right
 temperature unit for any given packet.
 
-## Legacy Setpoint Temperatures
+## Enhanced Temperatures
+
+Enhanced temperatures (internally known as "temperature scale A") are far simpler to calculate, capable of being 
+converted from the wire using the formula `(wire_data - 128) / 2`. Likewise, a temperature value can be converted to 
+wire format using `(temp * 2) + 128`.
+
+## Legacy Temperatures
+
+While most systems observed seem to use the enhanced temperature scale above, certain units will still only accept
+or transmit information using legacy scales. Developers are typically encouraged to send both legacy and enhanced
+temperature values where appropriate, and prefer reading from enhanced temperature if it exists.
+
+### Setpoint Temperature
 
 Legacy setpoint temperatures will have a binary value of `0x00` to `0x1F`, which spans the range of 16 to 31.5 degrees 
 Celsius.
@@ -22,24 +34,27 @@ def legacy_to_celsius(data):
 
 It is not known if legacy systems also support fractional values - SWICago's library seems to imply that they do not.
 
-## Legacy Current Temperatures
+### Heat Pump Room Temperature
 
-A couple packets report/use a special scale for "current temperature", otherwise known as "room temperature". Converting
-this to degrees Celsius can be done with the formula `10 + data`. Likewise, converting from degrees Celsius is 
-`data - 10`. This temperature scale is constrained between 0x00 (10 degrees C) to 0x1F (41 degrees C). At present, no 
-logic for fractional units has been detected.
+Heat pumps reporting information to a connected thermostat, Kumo unit, or mITP device will use a simplified scale for
+the current room temperature.
 
-The Kumo JavaScript file also notes a separate temperature scale called `room_temp`, which can be converted to Celsius 
-with the formula `8 + data * 0.5`. This temperature is constrained from 8 to 39.5 degrees Celsius. The special value 
-0x00 represents any temperature less than or equal to 8 degrees Celsius, while the special value 0x3f represents any 
-temperature greater than or equal to 39 degrees Celsius. While the Kumo docs claim this is used in favor of the above 
-scale, it is unclear why observations do not match this.
+A temperature in this scale can be converted to Celsius using the formula `10 + data`. This scale is constrained from
+10°C (value `0x00`) to 41°C (value `0x1F`), and this scale does not appear to support fractional units. 
 
-## Enhanced Temperatures
+A temperature can be converted to wire format by using the inverse formula `temp - 10` and clamping values accordingly.
 
-Enhanced temperatures (internally known as "temperature scale A") are far simpler to calculate, capable of being 
-converted from the wire using the formula `(wire_data - 128) / 2`. Likewise, a temperature value can be converted to 
-wire format using `(temp * 2) + 128`.
+### Thermostat Room Temperature
+
+Certain (possibly all?) thermostats will report the current room temperature using a special scale capable of supporting
+fractional values. This scale was initially discovered in the Kumo JavaScript file, under the name `room_temp`.
+
+A temperature in this scale can be converted to Celsius using the formula `8 + (data * 0.5)`. This scale is constrained
+from 8°C (value `0x00`) to 39.5°C (value `0x3F`). If a temperature exceeds either constraint, it will instead be clamped 
+accordingly.
+
+A temperature can be converted to wire format by using the inverse formula `(2 * temp) - 16`. The temperature should
+be rounded to the nearest half degree, and the final wire result must also be accordingly clamped.
 
 ## Celsius/Fahrenheit Conversion
 
