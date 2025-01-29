@@ -47,10 +47,10 @@ def celsius_to_setpoint(temp):
         wire += 0x10
     
     return wire
-
 ```
 
 It is not known if legacy systems also support fractional values - SWICago's library seems to imply that they do not.
+In this case, only the last four bits appear to be read to by the unit.
 
 ### Heat Pump Room Temperature
 
