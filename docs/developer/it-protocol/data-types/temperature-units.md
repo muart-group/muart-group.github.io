@@ -5,9 +5,13 @@ temperature unit for any given packet.
 
 ## Enhanced Temperatures
 
-Enhanced temperatures (internally known as "temperature scale A") are far simpler to calculate, capable of being 
-converted from the wire using the formula `(wire_data - 128) / 2`. Likewise, a temperature value can be converted to 
-wire format using `(temp * 2) + 128`.
+Most modern CN105/IT Protocol devices will use an "enhanced temperature" scale (internally known as "temperature scale
+A"). A temperature in this scale can be converted to degrees Celsius by using the formula `(data - 128) / 2`. This
+scale is constrained between -64°C (value `0x00`) to 63.5°C (value `0xFF`). No special handling appears to exist for
+temperatures outside of this scale, likely as this range is not expected to be seen in a residential setting.
+
+A temperature can be converted to wire format by using the inverse formula `(temp * 2) + 128` and trimmed to a single
+byte.
 
 ## Legacy Temperatures
 
@@ -17,19 +21,33 @@ temperature values where appropriate, and prefer reading from enhanced temperatu
 
 ### Setpoint Temperature
 
-Legacy setpoint temperatures will have a binary value of `0x00` to `0x1F`, which spans the range of 16 to 31.5 degrees 
-Celsius.
+Legacy setpoint temperatures will have a binary value of `0x00` to `0x1F`, which spans the range of 16°C to 31.5°C.
 
 A wire signal can be converted from a temperature value through the following code:
 
 ```python
-def legacy_to_celsius(data):
+def setpoint_to_celsius(data):
     temp = (31 - data % 0x10)
     
     if data // 0x10 > 0:
         temp += 0.5
     
     return temp
+
+def celsius_to_setpoint(temp):
+    if temp < 16:
+        temp = 16
+    
+    if temp > 31.5:
+        temp = 31.5
+    
+    wire = (31 - int(temp)) & 0xF
+    
+    if temp % 1 >= 0.5:
+        wire += 0x10
+    
+    return wire
+
 ```
 
 It is not known if legacy systems also support fractional values - SWICago's library seems to imply that they do not.
