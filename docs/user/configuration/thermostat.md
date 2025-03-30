@@ -12,6 +12,7 @@ uart:
     ...
   - id: ts_uart
     baud_rate: 2400  # may be 9600
+    parity: EVEN
     rx_pin:
       number: GPIO16
     tx_pin:
