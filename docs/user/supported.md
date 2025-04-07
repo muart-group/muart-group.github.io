@@ -7,6 +7,7 @@ sidebar_position: 40
 This component is currently regularly tested against the following unit types:
 
 * SVZ-KP30NA
+* MSZ-AP50VGK
 * MSZ-GL06NA
 * MSZ-GE35VA
 * MSZ-FS06NA
