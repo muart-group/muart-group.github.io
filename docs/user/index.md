@@ -47,7 +47,7 @@ manually retrieved from the mUART fork. This is reflected in the minimal example
 
 ```yaml
 external_components:
-  - source: github://muart-group/esphome@dev
+  - source: github://muart-group/esphome-components@main
     components: [ mitsubishi_itp ]
     
 # Remember to disable logger if using the primary UART!
