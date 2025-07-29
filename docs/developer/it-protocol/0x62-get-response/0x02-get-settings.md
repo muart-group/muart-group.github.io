@@ -18,10 +18,11 @@ page for additional information about the below fields.
 | 11   | Target Temperature                  |                 |                    |                         |
 | 12   | (UNCONFIRMED) Target Humidity       |                 |                    | Possibly JP units only? | 
 | 13   | (UNCONFIRMED) Power Saving Mode     |                 |                    | Possibly JP units only? | 
-| 14   | (UNCONFIRMED) "Wind and Wind Break" |                 |                    | Possibly JP units only? | 
+| 14   | Airflow control mode (i-See)        | See<br/>[`0x41 0x08` - Set Run State][set-run-state] |   | E.g MSZ-LN25VG2W | 
 | 15   | (UNCONFIRMED) Left Vertical Vane    |                 |                    | Possibly JP units only? | 
 
 [set-settings]: ../0x41-set-request/0x01-set-settings.md
+[set-run-state]: ../0x41-set-request/0x08-set-run-state.md
 
 ## Horizontal Vanes
 
