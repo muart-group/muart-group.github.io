@@ -12,7 +12,7 @@ page for additional information about the below fields.
 | 5    | Legacy Target Temperature           |                 |                    |                         |
 | 6    | Fan Speed                           |                 |                    |                         |
 | 7    | Vertical Vane                       |                 |                    |                         |
-| 8    | Prohibit Flags                      |                 |                    |                         |
+| 8    | Remote Prohibit Flags               |                 |                    |                         |
 | 9    |                                     |                 |                    |                         |
 | 10   | Horizontal Vane                     |                 |                    |                         |
 | 11   | Target Temperature                  |                 |                    |                         |
