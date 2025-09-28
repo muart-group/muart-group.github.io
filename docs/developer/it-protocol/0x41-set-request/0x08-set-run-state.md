@@ -24,8 +24,8 @@ Seems to correlate (at least partially) with [`0x62 0x09` - Get Run State][get-r
 | Value | Name     |
 |-------|----------|
 | 0     | EVEN     |
-| 1     | DIRECT   |
-| 2     | INDIRECT |
+| 1     | INDIRECT |
+| 2     | DIRECT   |
 
 Confirmed to work on units with the i-See sensor and the DIRECTION key on the IR remote (e.g. MSZ-LN##VG#*).
 The mode can only be set when the horizontal vane field is set to 0x80 *and* the i-See sensor is activated on the unit.
