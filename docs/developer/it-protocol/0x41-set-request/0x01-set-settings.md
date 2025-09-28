@@ -15,7 +15,7 @@ target temperature, and similar.
 | 8    |
 | 9    |
 | 10   |
-| 11   | Prohibit Flags            | [Prohibit Flags](#prohibit-flags)          |                    | Update Flag 0x0040                                             |
+| 11   | Remote Prohibit Flags     | [Remote Prohibit Flags](#prohibit-flags)   |                    | Update Flag 0x0040                                             |
 | 12   |
 | 13   | Horizontal Vane           | [Horizontal Vane](#horizontal-vane)        |                    | Update Flag 0x0100                                             |
 | 14   | Target Temperature        | [Enhanced Temperature][temp-a]             |                    | Update Flag 0x0004.<br/>Takes priority over legacy temperature |
@@ -86,8 +86,7 @@ set each vane side independently.
 
 ## Prohibit Flags
 
-The exact intent of this byte is unknown, but it appears to prevent certain changes from being made so long as the
-prohibit flags are in place.
+This byte can be used to lock out the remote from doing certain operations. Trying to use a locked feature will be rejected by the unit with a short double beep. This feature is implemented in the European MelCloud app.
 
 | Bit  | Purpose             | Supported by mUART | Notes |
 |------|---------------------|--------------------|-------|
