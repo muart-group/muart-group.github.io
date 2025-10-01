@@ -11,7 +11,11 @@ Seems to correlate (at least partially) with [`0x62 0x09` - Get Run State][get-r
 | 5*   | (UNCONFIRMED) Power Saving Mode  | 0x00: Off<br/>0x0A: On                   |                    | Update flag 0x0800                                             |
 | 6**  | Airflow control mode (i-See)     | [Airflow control mode](#airflow-control-mode-i-see) |         | Update flag 0x2000<br/>Not all values supported for all units. |
 | 7*   | (UNCONFIRMED) Buzzer             | 0x00: No<br/>0x01: Yes                   |                    | Update flag 0x1000<br/>Sending 0x01 results in some units beeping twice |
-| 11*  | (UNCONFIRMED) Notification for remote control navigation | 0x02 : 0x00    |                    | Update flag 0x0002                                             |
+| 11*  | (UNCONFIRMED) Notification for remote control navigation | 0x02 : 0x00      |                    | Update flag 0x0002                                             |
+| 12   | Air Purifier State               | 0x00: Off<br/>0x01: On                   |                    | Update flag 0x0004                                             |
+| 13   | Night Mode State                 | 0x00: Off<br/>0x01: On                   |                    | Update flag 0x0008                                             |
+| 14   | (UNCONFIRMED) Circulator Mode State | 0x00: Off<br/>0x01: On                |                    | Update flag 0x0010<br/>Not available on certain units          |
+
 
 **Extracted from Android app 霧ヶ峰REMOTE (v5.3.1)*
 
