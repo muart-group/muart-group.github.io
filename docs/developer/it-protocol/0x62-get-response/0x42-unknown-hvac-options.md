@@ -4,7 +4,7 @@ These options are extracted from an MSZ-AY HVAC device.
 
 Returns the boolean whether the option is currently active or not.
 
-Options can be set with the [`0x08` - Set Run State](../0x41-set-request/0x08-set-run-state) command.
+Options can be set with the [`0x08` - Set Run State](../0x41-set-request/0x08-set-run-state.md) command.
 
 | Byte | Purpose           | Possible Values     | Notes                                    |
 |------|-------------------|---------------------|------------------------------------------|
