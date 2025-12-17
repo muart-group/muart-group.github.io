@@ -42,6 +42,18 @@ sensor:
           return NAN;
 ```
 
+## Enabling Logging
+
+Sometimes as part of troubleshooting it's useful to see the raw packet information being passed to and from the heat pump and thermostat in the logs. To enable this, we recommend modifying your logging section to include this:
+```yaml
+logger:
+  level: VERBOSE
+  logs:
+    sensor: WARN
+```
+
+`level: VERBOSE` will log all the packet data, but sensors can become very chatty in verbose, so the `sensor: WARN` lowers their log level specifically.
+
 ## Use Mitsubishi temperature conversion
 
 Mitsubishi products like their thermostat don't use a simple formula or rounding for converting C to F.  Unfortunately this can lead to inconsistent behavior when trying to e.g. compare a thermostat's F values to Home Assistant's F values.  This code snippet allows you to convert values using Mitsubishi's lookup tables (or a reasonable subsection thereof) for consistency.
