@@ -65,12 +65,12 @@ is in. That is, if the operation mode is set to auto, this field will denote wha
 This byte may additionally contain extra bits (namely, `0x40`), though the meaning of this bit is currently unknown at
 this time.
 
-| Value  | Name                |
-|--------|---------------------|
-| 0x00   | Direct              |
-| 0x01   | Auto Fan            |
-| 0x02   | Auto Heat           |
-| 0x03   | Auto Cool           |
-| 0x40   | Auto Leader         |
-| 0x41   | ???                 |
-| 0x42   | ???                 |
+| Value  | Name                | Notes                                                                                      |
+|--------|---------------------|--------------------------------------------------------------------------------------------|
+| 0x00   | Direct              | The system is set direct to Cool, Heat or Fan mode                                         |
+| 0x01   | Auto Fan            | The system is set to Auto and current mode is Fan.                                         |
+| 0x02   | Auto Heat           | The system is set to Auto and current mode is Heat.                                        |
+| 0x03   | Auto Cool           | The system is set to Auto and current mode is Cool.                                        |
+| 0x40   | Auto Leader         | The multisplit system is set to Auto and the device operate as a Leader.                   |
+| 0x41   | ???                 | Unknown.                                                                                   |
+| 0x42   | ???                 | Unknown.                                                                                   |
