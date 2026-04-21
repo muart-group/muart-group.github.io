@@ -32,7 +32,7 @@ the MSZ-GE##VA and MSZ-FD##VA units, but otherse may be affected.
 | 0x00 | Normal    |                    | The system is in normal state.                                                             |
 | 0x01 | Filter    |                    | The filter needs to be serviced.                                                           |
 | 0x02 | Defrost   |                    | The outdoor unit is in a defrost cycle.                                                    |
-| 0x04 | Preheat   |                    | The system is preheating for a HEAT call.                                                  |
+| 0x04 | Preheat   |                    | The system is preheating for a HEAT call. ("HotAdjust" in Mitsubishi docs)                 |
 | 0x08 | Standby   |                    | The unit is in standby mode (another unit with priority is requesting a conflicting mode). |
 
 ## Actual Fan Speeds
