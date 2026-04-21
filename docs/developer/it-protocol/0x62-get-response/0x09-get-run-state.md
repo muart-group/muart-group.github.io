@@ -29,9 +29,10 @@ the MSZ-GE##VA and MSZ-FD##VA units, but otherse may be affected.
 
 | Bit  | Purpose   | Supported by mUART | Notes                                                                                      |
 |------|-----------|--------------------|--------------------------------------------------------------------------------------------|
+| 0x00 | Normal    |                    | The system is in normal state.                                                             |
 | 0x01 | Filter    |                    | The filter needs to be serviced.                                                           |
 | 0x02 | Defrost   |                    | The outdoor unit is in a defrost cycle.                                                    |
-| 0x04 | HotAdjust |                    | The system is preheating for a HEAT call.                                                  |
+| 0x04 | Preheat   |                    | The system is preheating for a HEAT call.                                                  |
 | 0x08 | Standby   |                    | The unit is in standby mode (another unit with priority is requesting a conflicting mode). |
 
 ## Actual Fan Speeds
@@ -66,10 +67,10 @@ this time.
 
 | Value  | Name                |
 |--------|---------------------|
-| 0x00   | N/A                 |
-| 0x01   | Cool                |
-| 0x02   | Heat                |
-| 0x03   | "Leader" Mode (???) |
-| 0x40   | ???                 |
+| 0x00   | Direct              |
+| 0x01   | Auto Fan            |
+| 0x02   | Auto Heat           |
+| 0x03   | Auto Cool           |
+| 0x40   | Auto Leader         |
 | 0x41   | ???                 |
 | 0x42   | ???                 |
