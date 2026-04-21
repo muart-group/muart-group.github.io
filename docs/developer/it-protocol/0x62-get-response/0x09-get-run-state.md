@@ -29,9 +29,10 @@ the MSZ-GE##VA and MSZ-FD##VA units, but otherse may be affected.
 
 | Bit  | Purpose   | Supported by mUART | Notes                                                                                      |
 |------|-----------|--------------------|--------------------------------------------------------------------------------------------|
+| 0x00 | Normal    |                    | The system is in normal state.                                                             |
 | 0x01 | Filter    |                    | The filter needs to be serviced.                                                           |
 | 0x02 | Defrost   |                    | The outdoor unit is in a defrost cycle.                                                    |
-| 0x04 | HotAdjust |                    | The system is preheating for a HEAT call.                                                  |
+| 0x04 | Preheat   |                    | The system is preheating for a HEAT call. ("HotAdjust" in Mitsubishi docs)                 |
 | 0x08 | Standby   |                    | The unit is in standby mode (another unit with priority is requesting a conflicting mode). |
 
 ## Actual Fan Speeds
@@ -64,12 +65,12 @@ is in. That is, if the operation mode is set to auto, this field will denote wha
 This byte may additionally contain extra bits (namely, `0x40`), though the meaning of this bit is currently unknown at
 this time.
 
-| Value  | Name                |
-|--------|---------------------|
-| 0x00   | N/A                 |
-| 0x01   | Cool                |
-| 0x02   | Heat                |
-| 0x03   | "Leader" Mode (???) |
-| 0x40   | ???                 |
-| 0x41   | ???                 |
-| 0x42   | ???                 |
+| Value  | Name                | Notes                                                                                      |
+|--------|---------------------|--------------------------------------------------------------------------------------------|
+| 0x00   | Direct              | The system is set direct to Cool, Heat or Fan mode                                         |
+| 0x01   | Auto Fan            | The system is set to Auto and current mode is Fan.                                         |
+| 0x02   | Auto Heat           | The system is set to Auto and current mode is Heat.                                        |
+| 0x03   | Auto Cool           | The system is set to Auto and current mode is Cool.                                        |
+| 0x40   | Auto Leader         | The multisplit system is set to Auto and the device operate as a Leader.                   |
+| 0x41   | ???                 | Unknown.                                                                                   |
+| 0x42   | ???                 | Unknown.                                                                                   |
