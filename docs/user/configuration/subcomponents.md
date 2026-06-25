@@ -24,6 +24,9 @@ binary_sensor:
     standby:
       # Reports if system is in standby
       name: "Standby"
+    using_internal_temperature:
+      # Reports if system is using internal temperature sensor
+      name: "On Internal Temperature"
 
 sensor:
   - platform: mitsubishi_itp
@@ -33,6 +36,12 @@ sensor:
     outdoor_temperature:
       # Outdoor temperature as reported by equipment
       name: "Outdoor Temperature"
+    input_watts:
+      name: "Input Watts"
+    lifetime_kwh:
+      name: "Lifetime kWh"
+    runtime:
+      name: "Runtime"
 
     # Only available if a thermostat is connected
     thermostat_humidity:
@@ -91,3 +100,18 @@ select:
 ### Temperature Source Select
 
 See [adding extra temperature sources](temp-sources.md).
+
+## Switches
+
+### Zone Control
+
+On supported units, each switch controls one zone. At least one zone needs to be configured for zones to be enabled.
+
+```yml
+switch:
+  zone_1:
+    name: "Zone 1"
+  ...
+  zone_9:
+    name: "Zone 9"
+```

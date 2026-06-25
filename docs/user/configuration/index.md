@@ -67,3 +67,11 @@ The `custom_fan_modes` key is used to include the `VERYHIGH` (otherwise known as
 natively supported by ESPHome or Home Assistant.
 
 Sub-components (like sensors) need to be explictly added to the configuration.  Additional information is available [on the Sub-Components documentation page](./subcomponents.md).
+
+### `enhanced_mhk` (🧪Experimental)
+
+Setting `enhanced_mhk` to `true` will cause the MITP Component to attempt to emulate a Kumo adapter, enabling additional functionality for connected MHK2s. This feature is still experimental, but MHK2 humidity and Auto setpoints seem relatively stable (time sync is mostly supported but a bit mysterious).
+
+### `mhk_fahrenheit_correction` (🧪Experimental)
+
+All temperatures used by Mitsubishi equipment and the MITP Component are in Celcius. Home Assistant will round these values to the closest Fahrenheit value. MHK2 thermostats, on the otherhand, will use a [lookup table](http://localhost:3000/user/configuration/useful-snippets#use-mitsubishi-temperature-conversion) to convert between C and F. This means that the temperature / setpoint displayed on an MHK2 might not match that shown in Home Assistant (though both will result in the same *actual* C temperatures in the equipment). Enabling `mhk_fahrenheit_correction` will attempt to trick the MHK2 into showing the same "normal" rounded F values that are shown in Home Assistant for current and setpoint temperatures.
