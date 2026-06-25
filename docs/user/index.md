@@ -16,9 +16,13 @@ By using this project, you may void your warranty, break your heat pump, or risk
 
 ## Hardware Design
 
+For an easy DIY design, consider
+using [a Wemos D1 Mini](https://github.com/SwiCago/HeatPump/issues/13#issuecomment-457897457). 
+
+The [MahtanarM](https://github.com/tinwer-group/mahtanar) is a pre-made, pre-flashed board available for purchase (disclosure: sold by the same @samphonic that contributes to this project).
+
 SwiCago has generously shared a [demo schematic](https://github.com/SwiCago/HeatPump?tab=readme-ov-file#demo-circuit)
-that will be the base of the hardware. Refer to this if you get lost. For the closest to "ready-to-go" design, consider
-using [a Wemos D1 Mini](https://github.com/SwiCago/HeatPump/issues/13#issuecomment-457897457).
+that will be the base of the hardware. Refer to this if you get lost.
 
 The Mitsubishi CN105 port is fortunately [rather well documented](https://nicegear.nz/blog/hacking-a-mitsubishi-heat-pump-air-conditioner/)
 at this point. It exposes five pins:
