@@ -6,13 +6,17 @@ whether certain features exist on any given unit, and is used to self-configure 
 | Byte | Purpose           | Possible Values | Supported by mUART | Notes |
 |------|-------------------|-----------------|--------------------|-------|
 | 0    | CommandType       | 0xC9            |                    |       |
-| 1-6  | "Arbitrary Data"  | 0x03            |                    |       |
+| 1-5  | "Arbitrary Data"  | 0x03            |                    |       |
+| 6    | Unit Capabilities | See below       |                    | Read by 霧ヶ峰REMOTE; previously grouped with "Arbitrary Data" |
 | 7-15 | Unit Capabilities | See below       |                    |       |
 
 ## Unit Capabilities
 
 | Byte | Bitmask | Purpose                                | Notes                                                      |
 |------|---------|----------------------------------------|------------------------------------------------------------|
+| 6    | 0x08    | Thermal image support                  | Flag name `isThermalImageSupport` from 霧ヶ峰REMOTE v5.3.1  |
+| 6    | 0x40    | Touch-flow capable model               | Flag name `touchFlowEnableModel` from 霧ヶ峰REMOTE v5.3.1   |
+| 6    | 0x80    | Auto mode support                      | Flag name `isAutoModeSupport` from 霧ヶ峰REMOTE v5.3.1      |
 | 7    | 0x01    | ???                                    | Observed true                                              |
 | 7    | 0x02    | Heat Disabled (if true)                |                                                            |
 | 7    | 0x04    | ???                                    | Observed true                                              |
@@ -104,6 +108,6 @@ sent, no `0x7B` follows, and the unit stays otherwise fully responsive. Implemen
 that use `0xC9` to self-configure should treat a missing reply as "capabilities
 unavailable" and fall back, rather than as a link or handshake failure.
 
-| Model      | Notes                                                                                                  |
-|------------|--------------------------------------------------------------------------------------------------------|
-| MLZ-KP18NA | 1-way ceiling cassette. No response to `0xC9`; does respond to `0xCD`. Also ignores the `0xCA` connect. |
+| Model      | Notes                                                                                                          |
+|------------|------------------------------------------------------------------------------------------------------------------|
+| MLZ-KP18NA | 1-way ceiling cassette, NA market. No response to `0xC9`, `0xCA` or `0xD0`; `0xCD` is the only identify subcommand it answers. |
