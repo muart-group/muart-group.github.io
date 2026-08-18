@@ -96,3 +96,14 @@ Known fan speed values (and model numbers associated with certain fan speed valu
 [FC.7B.01.30.10] C9.03.00.20.00.14.07.F5.8C.25.A0.BE.94.BE.A0.BE 89  // MSZ-LN35VGW
 [FC.7B.01.30.10] C9.03.00.20.00.14.17.F5.8C.35.A0.BE.94.BE.A0.BE 69  // MSZ-AY35VGKP
 ```
+
+## Units Known Not To Respond
+
+Some units do not implement this command and return nothing at all: the request is
+sent, no `0x7B` follows, and the unit stays otherwise fully responsive. Implementations
+that use `0xC9` to self-configure should treat a missing reply as "capabilities
+unavailable" and fall back, rather than as a link or handshake failure.
+
+| Model      | Notes                                                                                                  |
+|------------|--------------------------------------------------------------------------------------------------------|
+| MLZ-KP18NA | 1-way ceiling cassette. No response to `0xC9`; does respond to `0xCD`. Also ignores the `0xCA` connect. |
