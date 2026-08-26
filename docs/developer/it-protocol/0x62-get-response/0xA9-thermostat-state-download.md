@@ -5,22 +5,22 @@ sent on a regular cadence by an MHK2.
 
 For the packet used by the MHK to submit its state to the Kumo, see [`0x41 0xA8` - Thermostat State Upload](../0x41-set-request/0xA8-thermostat-state-upload.md).
 
-:::warning
-The below table is speculative and not confirmed.
-
-Implementations should not use these definitions until they've been verified more closely.
+:::note
+Byte offsets below are confirmed directly from firmware (`it_host::ProcessPacketMaybe`'s AG_A9
+GetResponse assembly). Field identities for bytes 11-12 are still open — see notes column.
 :::
 
-| Byte | Purpose              | Possible Values                | Supported by mUART | Notes |
-|------|----------------------|--------------------------------|--------------------|-------|
-| 0    | CommandType          | 0xA9                           |                    |       |
-| 1-4  | Adapter Timestamp    | [Timestamp][timestamp]         |                    |       |
-| 5    | ???                  | 0x00                           |                    |       |
-| 6    | Auto Mode Active (?) | 0x00, 0x01                     |                    |       |
-| 7    | Heat Setpoint        | [Enhanced Temperature][temp-a] | No                 |       |
-| 8    | Cool Setpoint        | [Enhanced Temperature][temp-a] | No                 |       |
-| 10   | ???                  | 0x00, 0x07                     |                    |       |
-| 12   | ???                  | 0x00                           |                    |       |
+| Byte | Purpose                     | Possible Values                      | Supported by mUART | Notes |
+|------|-----------------------------|--------------------------------------|--------------------|-------|
+| 0    | CommandType                 | 0xA9                                 |                    |       |
+| 1-4  | Adapter Timestamp           | [Timestamp][timestamp]               |                    |       |
+| 5    | MHK Controls Scheduling (?) | 0x00, 0x01                           |                    |       |
+| 6    | Auto Mode Status            | 0x00, 0x01, 0x02                     |                    |       |
+| 7    | Heat Setpoint               | [Enhanced Temperature][temp-a]       | No                 |       |
+| 8    | Cool Setpoint               | [Enhanced Temperature][temp-a]       | No                 |       |
+| 9    | Demand Response Event       | [DR Values](#demand-response-values) |                    |       |
+| 10   | ???                         | 0x00, 0x07                           |                    |       |
+| 11   | ???                         | 0x00                                 |                    |       |
 
 [timestamp]: ../data-types/timestamps.md
 [temp-a]: ../data-types/temperature-units.md#enhanced-temperatures
@@ -28,6 +28,21 @@ Implementations should not use these definitions until they've been verified mor
 A blank timestamp (all zeroes) will cause a MHK2 unit to fail to successfully boot, perpetually showing a `WAIT` screen.
 
 If a heat or cool setpoint are unset (value `0x00`), the MHK appears to assume that its settings are correct.
+
+### Demand Response Values
+
+The Kumo implements OpenADR status, with the following enum values:
+
+| Value | Meaning                                     |
+|-------|---------------------------------------------|
+| 0     | Demand Response inactive or disabled        |
+| 1     | Demand Response active at `basic` level     |
+| 2     | Demand Response active at `critical` level  |
+| 3     | Demand Response active at `emergency` level |
+| 4     | Error/uninitialized state                   |
+
+These values are reported via upstream APIs and are sent to the MHK for processing. The Kumo firmware doesn't appear
+to do anything with ADR values by itself (?).
 
 ### Sample Packets
 

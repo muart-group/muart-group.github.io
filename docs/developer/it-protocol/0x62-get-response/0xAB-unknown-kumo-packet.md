@@ -2,7 +2,7 @@
 
 Requested by thermostat in a 0x42 packet, response from Kumo in 0x62. Follows a 0xA9 request/response cycle.
 
-No variance of this packet has been seen yet.
+No variance of this packet has been seen yet. Appears to have something to do with scheduling synchronization.
 
 ### Sample Packets
 

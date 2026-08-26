@@ -3,17 +3,17 @@
 This command appears to be used to "upload" the MHK2's state to the Kumo Cloud. It is sent on a regular cadence by the
 MHK2 if an upstream Kumo device has been detected.
 
-| Byte | Purpose             | Possible Values                 | Supported by mUART | Notes                               |
-|------|---------------------|---------------------------------|--------------------|-------------------------------------|
-| 0    | Command Type        | 0xA8                            | Partial            |                                     |
-| 1    | Flags               | Traditional hex flags           |                    | Determines which fields to process  |
-| 2-5  | Thermostat Time (?) | [Timestamp][timestamp]          |                    | Flag 0x01                           |
-| 6    | ???                 | 0x00, 0x01                      |                    | Flag 0x02                           |
-| 7    | MHK Auto Mode (?)   | 0x00, 0x01, 0x02                |                    | Flag 0x04                           |
-| 8    | Heating Setpoint    | [Enhanced Temperatures][temp-a] |                    | Flag 0x08<br/>Resets if invalid (?) |
-| 9    | Cooling Setpoint    | [Enhanced Temperatures][temp-a] |                    | Flag 0x10<br/>Resets if invalid (?) |
-| 10   | ???                 | 0x00, 0x01                      |                    | Flag 0x20                           |
-| 11   | ???                 | 0x00, 0x01                      |                    | Flag 0x40                           |
+| Byte | Purpose                     | Possible Values                 | Supported by mUART | Notes                               |
+|------|-----------------------------|---------------------------------|--------------------|-------------------------------------|
+| 0    | Command Type                | 0xA8                            | Partial            |                                     |
+| 1    | Flags                       | Traditional hex flags           |                    | Determines which fields to process  |
+| 2-5  | Thermostat Time (?)         | [Timestamp][timestamp]          |                    | Flag 0x01                           |
+| 6    | MHK Controls Scheduling (?) | 0x00, 0x01                      |                    | Flag 0x02                           |
+| 7    | MHK Auto Mode (?)           | 0x00, 0x01, 0x02                |                    | Flag 0x04                           |
+| 8    | Heating Setpoint            | [Enhanced Temperatures][temp-a] |                    | Flag 0x08<br/>Resets if invalid (?) |
+| 9    | Cooling Setpoint            | [Enhanced Temperatures][temp-a] |                    | Flag 0x10<br/>Resets if invalid (?) |
+| 10   | Override Demand Response    | 0x00, 0x01                      |                    | Flag 0x20                           |
+| 11   | Schedule Hold Cancel (?)    | 0x00, 0x01                      |                    | Flag 0x40                           |
 
 [timestamp]: ../data-types/timestamps.md
 [temp-a]: ../data-types/temperature-units.md#enhanced-temperatures
@@ -26,6 +26,12 @@ in auto mode or in heat-only/cool-only mode will also update the setpoints in th
 In order to update the unit setpoints for heating and cooling mode while a Kumo is connected (or a Kumo is being emulated), the
 setpoints must be sent via packet A9. Otherwise, the MHK will detect a desync on its next receipt of a Get Settings and attempt
 to issue a correction.
+
+## Override Demand Response
+
+This field is set to `0x01` by the MHK when the user specifically requests to bypass a 
+[Demand Response](https://www.openadr.org/faq) command from a utility. This command doesnt seem to have any actual
+behavior in regard to Kumo, but is used for reporting.
 
 ## Sample Packets
 

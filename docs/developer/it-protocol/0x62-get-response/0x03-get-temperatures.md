@@ -2,16 +2,16 @@
 
 This command is used to retrieve temperature information from the heat pump.
 
-| Byte  | Purpose                    | Possible Values                           | Supported by mUART | Notes                                                                          |
-|-------|----------------------------|-------------------------------------------|--------------------|--------------------------------------------------------------------------------|
-| 0     | Command                    | 0x03                                      | Yes                |
-| 3     | Current Temperature        | [Legacy HP Room Temperature][legacy-temp] |                    |                                                                                |
-| 5     | Outdoor Unit Temperature   | [Enhanced Temperature][temp-a]            |                    | Rounded to nearest whole °C<br/>If 0x00, unsupported.                          |
-| 6     | Current Temperature        | [Enhanced Temperature][temp-a]            |                    |                                                                                |
-| 7     | ???                        | [Enhanced Temperature][temp-a]            |                    | Claimed to be the most recent value, but observations do not match that.       |
-| 8     | ???                        | 0x00, 0xFE                                |                    |                                                                                |
-| 9     | ???                        | 0x42, 0x00                                |                    |                                                                                |
-| 11-13 | Runtime                 | Scalar                                    |                    | Appears to be minutes the unit was active.<br/>Not sent for all unit types. |
+| Byte  | Purpose                  | Possible Values                           | Supported by mUART | Notes                                                                       |
+|-------|--------------------------|-------------------------------------------|--------------------|-----------------------------------------------------------------------------|
+| 0     | Command                  | 0x03                                      | Yes                |
+| 3     | Current Temperature      | [Legacy HP Room Temperature][legacy-temp] |                    |                                                                             |
+| 5     | Outdoor Unit Temperature | [Enhanced Temperature][temp-a]            |                    | Rounded to nearest whole °C<br/>If 0x00, unsupported.                       |
+| 6     | Current Temperature      | [Enhanced Temperature][temp-a]            |                    |                                                                             |
+| 7     | ???                      | [Enhanced Temperature][temp-a]            |                    | Claimed to be the most recent value, but observations do not match that.    |
+| 8     | ???                      | 0x00, 0xFE                                |                    |                                                                             |
+| 9     | ???                      | 0x42, 0x00                                |                    |                                                                             |
+| 11-13 | Runtime                  | Scalar                                    |                    | Appears to be minutes the unit was active.<br/>Not sent for all unit types. |
 
 Bytes 6 and 7 are particularly confusing. First off, byte 7 is not sent by all units. SwiCago's thread has identified 
 Byte 7 to be the "most recent" reading, while Byte 6 is the last reading. While this works for external temperature 

@@ -2,6 +2,8 @@
 
 Sent from the MHK2 to a Kumo Cloud unit, captured via logic analyzer.
 
+Appears to have something to do with scheduling synchronization.
+
 | Byte | Purpose      | Possible Values | Supported by mUART | Notes                |
 |------|--------------|-----------------|--------------------|----------------------|
 | 0    | Command Type | 0xAA            | No                 |                      |
